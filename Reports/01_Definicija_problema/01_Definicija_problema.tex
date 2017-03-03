@@ -1,0 +1,62 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[slovene]{babel}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+\begin{titlepage}
+
+
+% ZAČETNA STRAN
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+ 
+%----------------------------------------------------------------------------------------
+%	HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+\textsc{ UNIVERZA V MARIBORU\\ FAKULTETA ZA ELEKTROTEHNIKO,\\RAČUNALNIŠTVO IN INFORMATIKO}\\[5cm] % Name of your university/college
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+{ \huge \bfseries \textbf{DEFINICIJA PROBLEMA}}\\[0.4cm] % Title of your document
+\textsc{\large Povezljivi sistemi in ineligentne storitve}\\[5cm] % Minor heading such as course title
+
+%----------------------------------------------------------------------------------------
+%	AUTHORS SECTION
+%----------------------------------------------------------------------------------------
+{\large Gašper Gračner}\\[0.4cm]
+{\large Martin Oprešnik}\\[0.4cm]
+{\large Luka Koštomaj}\\[0.4cm] 
+
+%----------------------------------------------------------------------------------------
+%	DATE SECTION
+%----------------------------------------------------------------------------------------
+\vfill % Fill the rest of the page with whitespace
+{\large Maribor, avgust 2016}\\[3cm] % Date, change the \today to a set date if you want to be precise
+\end{titlepage}
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	CONTENT SECTION
+%----------------------------------------------------------------------------------------
+\textbf{Izbrani projekt: }Projekt 3 – Priporočanje športnega treninga na podlagi prejšnjih aktivnosti \\
+
+\textbf{Krajši opis: } Planiranje športnega treninga je dokaj težka naloga, za katero so zadolženi
+trenerji. V današnji dobi računalnikov pričakujemo, da bodo v prihodnosti glavni
+asistenti trenerjev vglavnem računalniki. Najnovejše raziskave trenutno razkrivajo, da
+se za priporočanje optimalnega treninga največkrat uporabljajometode, kot npr.
+podatkovno rudarjenje, strojno učenje in ostale.\\
+
+\textbf{Zahteve: } Študenti dobijo arhiv športnih dejavnosti v obliki TCX ali GPX. Te
+podatke je najprej potrebno obdelati in iz njih izluščiti atribute, kot so npr. čas trajanja,
+število kilometrov, maksimalnioz. povprečni pulz med športno aktivnostjo, itd. Iz teh
+podatkov je potrebno tvoriti testno in validacijsko množico, ter na teh dveh množicah
+uporabiti eno izmed metod strojnega učenja glede na kriterije, ki jih določi študent. Ta
+projekt lahko izvaja več študentov, pri čemer prvi recimo vzame metodo Decision
+Trees, drugi Random Forest, in tretji Extreme Randomized Trees. Na koncu je treba
+narediti poročilo kjer se predstavi rešitev in rezultati.
+
+\end{document}
