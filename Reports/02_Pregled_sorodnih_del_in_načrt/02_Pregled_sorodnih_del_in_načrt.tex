@@ -74,7 +74,7 @@ framexleftmargin=15pt}
 \section{Načrt dela}
 
 Projektno delo smo si razdelili na tri dele in sicer tako, da bomo za priporočanje športne aktivnosti uporabili različne pristope strojnega učenja. 
-Uporabili bomo Deep Neural networks, SVM in . 
+Uporabili bomo neural networks, SVM in . 
 Vsi se bomo prvič srečali z metodami stojnega učenja zato je načrtovanje dela kar zahtevno. \\
 Pri delu bomo uporabili Python in njegove knjižnice, za sledenje delu pa GitHub.com. 
 
@@ -101,20 +101,29 @@ SVC(C=1.0, cache_size=200, class_weight=None,
     tol=0.001, verbose=False)
 \end{lstlisting}
 
+\subsubsection{Luka - Analiza parametrov in izbira ustreznega modela nevronskih mrež}
+Med raziskovanjem nevronskih mrež sem našel veliko različnih metod za izdelavo le teh. Zato se trenutno še ne morem odločiti kateri model bom uporabil. Omejil sem se na programski jezik Python in tri knjižnice. Knjižnice, ki sem jih izbral so: Theano, Caffe, TensorFlow. Možnost tudi obstaja, da ne bi uporabil nobeno od naštetih. Moral bom tudi analizirati vhodne in izhodne podatke, ki jih bom pridobil v prvem sprintu, da bom lahko zgradil model.
+
 \subsection{Sprint3}
 \subsubsection{Gašper}
 Po analizi parametrov se bom lotil same implementacije rešitve in prilaganja parametrov, za naš problem, saj predvidevam, da bom s prilagajanjem paramtrov lahko rahlo izboljšal začetno rešitev. Zasnoval pa si bom še tesno množico, v primeru, da tega ne bomo uspeli v prvem sprintu.
 
+\subsubsection{Luka}
+V tretjem sprintu bom implementiral nevronsko mrežo.
+
 \subsection{Sprint4}
 \subsubsection{Gašper}
 Na koncu, bom poskusal uporabiti in primerjati še različne klasifikatorje, ki podpirajo SVM in so implementirani v uporabljeni knjižnici (\textit{SVC}, \textit{NuSVC} in \textit{LinearSVC}). Moral pa bom določiti tudi primerno metodo primerjanja klasifikatorjev.
+
+\subsubsection{Luka}
+Na koncu, bom testiral nevronsko mrežo in s tem poskušal spremeniti testno množico, da bi mogoče izboljšalo napoved.
 
 \newpage
 \section{SEZNAM LITERATURE}{\baselineskip=-8pt}
 \vspace{-36pt}
 \renewcommand{\refname}{}
 \nocite{*}
-\bibliographystyle{plain}
+\bibliographystyle{unsrt}
 \bibliography{bib/test}% database is "test.bib" located in a "bib" subfolder 
 
 \end{document}
