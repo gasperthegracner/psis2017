@@ -3,6 +3,31 @@
 \usepackage[slovene]{babel}
 \usepackage[utf8]{inputenc}
 
+\usepackage{listings}
+
+\usepackage{underscore}
+\renewcommand{\lstlistingname}{Primer}% Listing -> Primer
+
+\lstset{
+numbers=left, 
+numberstyle=\small, 
+numbersep=8pt, 
+frame = single, 
+language=Python, 
+framexleftmargin=15pt}
+
+\setlength{\parindent}{0pt}
+%BORDERS
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=30mm,
+ right=25mm,
+ top=30mm,
+ bottom=30mm
+ }
+
 \begin{document}
 \begin{titlepage}
 
@@ -45,5 +70,51 @@
 
 \section{Pregled sorodnih del}
 \section{Načrt dela}
+
+Projektno delo smo si razdelili na tri dele in sicer tako, da bomo za priporočanje športne aktivnosti uporabili različne pristope strojnega učenja. 
+Uporabili bomo Deep Neural networks, SVM in . 
+Vsi se bomo prvič srečali z metodami stojnega učenja zato je načrtovanje dela kar zahtevno. \\
+Pri delu bomo uporabili Python in njegove knjižnice, za sledenje delu pa GitHub.com. 
+
+\subsection{Sprint1}
+V prvem sprintu smo si zadali analizo podatkov, v kateri bomo sodlovali vsi. Podatke bomo brali s pomočjo Python knjižnice \textit{gpxpy (https://github.com/tkrajina/gpxpy)}. Potrebne funkcionalnosti knjižnice bomo enkapsulirali, da jih bomo lahko enostavneje uporabili pri nadaljnem delu.\\ Nad podatki bomo izvedli gručanje in jih prikazali v grafični obliki, da si bomo lažje predstavljali njihov pomen. Poskušali pa bomo ustvariti še učno množico podatkov.
+
+
+\subsection{Sprint2}
+\subsubsection{Gašper - Analiza parametrov in delovanja metode}
+Med raziskovanjem o SVM sem naletel na opis te metode v programskem jeziku Python. Uporabil je knjižnico sklearn in modul svm. Zato bom v tem sprintu poskušal analizirati parametre \textit{cache_size}, \textit{class_weight}, \textit{coef0}, \textit{decision_function_shape}, \textit{degree}, \textit{gamma}, \textit{kernel}, \textit{max_iter}, \textit{probability}, \textit{random_state}, \textit{shrinking}, \textit{tol}, in \textit{verbose}. \\
+
+\begin{lstlisting}[caption={Uporaba SVM v Pythonu},captionpos=b]
+from sklearn import svm
+X = [[0, 0], [1, 1]]
+y = [0, 1]
+clf = svm.SVC()
+clf.fit(X, y)  
+SVC(C=1.0, cache_size=200, class_weight=None, 
+	coef0=0.0, decision_function_shape=None, 
+	degree=3,
+    gamma='auto', kernel='rbf',
+    max_iter=-1, probability=False, 
+    random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+\end{lstlisting}
+
+\subsection{Sprint3}
+\subsubsection{Gašper}
+Po analizi parametrov se bom lotil same implementacije rešitve in prilaganja parametrov, za naš problem, saj predvidevam, da bom s prilagajanjem paramtrov lahko rahlo izboljšal začetno rešitev. Zasnoval pa si bom še tesno množico, v primeru, da tega ne bomo uspeli v prvem sprintu.
+
+\subsection{Sprint4}
+\subsubsection{Gašper}
+Na koncu, bom poskusal uporabiti in primerjati še različne klasifikatorje, ki podpirajo SVM in so implementirani v uporabljeni knjižnici (\textit{SVC}, \textit{NuSVC} in \textit{LinearSVC}). Moral pa bom določiti tudi primerno metodo primerjanja klasifikatorjev.
+
+\newpage
+\subsection{Viri}
+Exploring GPX files (https://ocefpaf.github.io/python4oceanographers/blog/2014/08/18/gpx/)
+
+Support vector machine (https://en.wikipedia.org/wiki/Support_vector_machine)
+
+SVM Tutorial (http://www.svm-tutorial.com/2014/10/support-vector-regression-r/)
+
+Support Vector Machines (http://scikit-learn.org/stable/modules/svm.html\#complexity)
 
 \end{document}
