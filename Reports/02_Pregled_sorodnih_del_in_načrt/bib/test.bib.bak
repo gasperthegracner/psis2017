@@ -1,0 +1,60 @@
+%% This BibTeX bibliography file was created using BibDesk.
+%% http://bibdesk.sourceforge.net/
+
+
+%% Created for Gašper Gračner at 2016-04-03 12:01:36 +0200 
+
+
+%% Saved with string encoding Unicode (UTF-8) 
+
+%%%%%%%%%   A    %%%%%%%%%%%%
+@misc{SVMTutorial,
+	author = "{Alexandre KOWALCZYK}",
+	title = "{SVM Tutorial - Support Vector Regression with R}",
+	howpublished = "Dostopno na:  \url{http://www.svm-tutorial.com/2014/10/support-vector-regression-r/}",
+	note = "[6. 3. 2017]"}
+
+%%%%%%%%%   F    %%%%%%%%%%%%
+@misc{ExpGPXFiles,
+	author = "Filipe Fernandes",
+	title = "{Exploring GPX files}",
+	howpublished = "Dostopno na:  \url{https://ocefpaf.github.io/python4oceanographers/blog/2014/08/18/gpx/}",
+	note = "[6. 3. 2017]"}
+
+%%%%%%%%%   S    %%%%%%%%%%%%
+@misc{ScikitSVM,
+	author = "{scikit-learn developers}",
+	title = "{Support Vector Machines}",
+	howpublished = "Dostopno na:  \url{http://scikit-learn.org/stable/modules/svm.html#complexity}",
+	note = "[6. 3. 2017]"}
+
+%%%%%%%%%   W    %%%%%%%%%%%%
+@misc{WikiSVM,
+	author = "{Wikipedia}",
+	title = "{Support vector machine}",
+	howpublished = "Dostopno na:  \url{https://en.wikipedia.org/wiki/Support_vector_machine}",
+	note = "[6. 3. 2017]"}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -4,6 +4,8 @@
 \usepackage[utf8]{inputenc}
 
 \usepackage{listings}
+\usepackage{babelbib}
+\usepackage{url}
 
 \usepackage{underscore}
 \renewcommand{\lstlistingname}{Primer}% Listing -> Primer
@@ -108,13 +110,11 @@ Po analizi parametrov se bom lotil same implementacije rešitve in prilaganja pa
 Na koncu, bom poskusal uporabiti in primerjati še različne klasifikatorje, ki podpirajo SVM in so implementirani v uporabljeni knjižnici (\textit{SVC}, \textit{NuSVC} in \textit{LinearSVC}). Moral pa bom določiti tudi primerno metodo primerjanja klasifikatorjev.
 
 \newpage
-\subsection{Viri}
-Exploring GPX files (https://ocefpaf.github.io/python4oceanographers/blog/2014/08/18/gpx/)
-
-Support vector machine (https://en.wikipedia.org/wiki/Support_vector_machine)
-
-SVM Tutorial (http://www.svm-tutorial.com/2014/10/support-vector-regression-r/)
-
-Support Vector Machines (http://scikit-learn.org/stable/modules/svm.html\#complexity)
+\section{SEZNAM LITERATURE}{\baselineskip=-8pt}
+\vspace{-36pt}
+\renewcommand{\refname}{}
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{bib/test}% database is "test.bib" located in a "bib" subfolder 
 
 \end{document}
