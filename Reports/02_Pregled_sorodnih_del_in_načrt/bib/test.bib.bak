@@ -14,6 +14,18 @@
 	howpublished = "Dostopno na:  \url{http://www.svm-tutorial.com/2014/10/support-vector-regression-r/}",
 	note = "[6. 3. 2017]"}
 
+@misc{caffe,
+	author = "{Berkeley Vision and Learning Center}",
+	title = "{Caffe}",
+	howpublished = "Dostopno na:  \url{http://caffe.berkeleyvision.org/}",
+	note = "[6. 3. 2017]"}
+
+@misc{neuNet101,
+	author = "{cazala}",
+	title = "{Neural Networks 101}",
+	howpublished = "Dostopno na:  \url{https://github.com/cazala/synaptic/wiki/Neural-Networks-101}",
+	note = "[6. 3. 2017]"}
+
 %%%%%%%%%   F    %%%%%%%%%%%%
 @misc{ExpGPXFiles,
 	author = "Filipe Fernandes",
@@ -21,6 +33,50 @@
 	howpublished = "Dostopno na:  \url{https://ocefpaf.github.io/python4oceanographers/blog/2014/08/18/gpx/}",
 	note = "[6. 3. 2017]"}
 
+@misc{tensorflow,
+	author = "{Google}",
+	title = "{TensorFlow}",
+	howpublished = "Dostopno na:  \url{https://www.tensorflow.org/}",
+	note = "[6. 3. 2017]"}
+
+@misc{theano,
+	author = "{LISA Lab}",
+	title = "{Theano}",
+	howpublished = "Dostopno na:  \url{http://www.deeplearning.net/software/theano}",
+	note = "[6. 3. 2017]"}
+
+@misc{neuroDepp,
+	author = "{Michael Nielsen}",
+	title = "{Neural Networks and Deep Learning}",
+	howpublished = "Dostopno na:  \url{http://neuralnetworksanddeeplearning.com/index.html}",
+	note = "[6. 3. 2017]"}
+
+%%%%%%%%%   L    %%%%%%%%%%%%
+@misc{decisionTree,
+	author = "{Victor Lavrenko}",
+	title = "{Decision Tree}",
+	howpublished = "Dostopno na:  \url{https://www.youtube.com/playlist?list=PLBv09BD7ez_4temBw7vLA19p3tdQH6FYO}",
+	note = "[6. 3. 2017]"}
+
+%%%%%%%%%   M    %%%%%%%%%%%%
+@misc{MLSA16,
+	author = "{MLSA16}",
+	title = "{Machine Learning and Data Mining for Sports Analytics}",
+	howpublished = "Dostopno na:  \url{https://dtai.cs.kuleuven.be/events/MLSA16/schedule.php}",
+	note = "[6. 3. 2017]"}
+	
+@misc{MMilan,
+	author = "{McMillan Running LLC}",
+	title = "{McMillan Running}",
+	howpublished = "Dostopno na:  \url{https://www.mcmillanrunning.com/}",
+	note = "[6. 3. 2017]"}
+	
+@misc{Runtastic,
+	author = "{Runtastic GmbH }",
+	title = "{Running Tips and Training Plans}",
+	howpublished = "Dostopno na:  \url{https://projectferiteam.slack.com/messages/psis/}",
+	note = "[6. 3. 2017]"}
+	
 %%%%%%%%%   S    %%%%%%%%%%%%
 @misc{ScikitSVM,
 	author = "{scikit-learn developers}",
@@ -35,19 +91,12 @@
 	howpublished = "Dostopno na:  \url{https://en.wikipedia.org/wiki/Support_vector_machine}",
 	note = "[6. 3. 2017]"}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+@misc{WikiDT,
+	author = "{Wikipedia}",
+	title = "{Decision tree learning}",
+	howpublished = "Dostopno na:  \url{https://en.wikipedia.org/wiki/Decision_tree_learning}",
+	note = "[6. 3. 2017]"}
+	
 
 
 
