@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="7.2.002">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="7.2.002" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="read_csv" compatibility="7.2.002" expanded="true" height="68" name="Read CSV" width="90" x="45" y="34">
+        <parameter key="csv_file" value="/Users/gaspergracner/Documents/FERI_MAG/Poletni_semester/Povezljivi_sistemi_in_inteligentne_storitve/psis2017/Project/Data/summed.csv"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="false"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="date_format" value="yyyy-MM-dd HH:mm:ss"/>
+        <parameter key="first_row_as_names" value="false"/>
+        <list key="annotations">
+          <parameter key="0" value="Name"/>
+        </list>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="UTF-8"/>
+        <list key="data_set_meta_data_information">
+          <parameter key="0" value="id.true.polynominal.attribute"/>
+          <parameter key="1" value="duration.true.integer.attribute"/>
+          <parameter key="2" value="avgHeartRate.true.real.attribute"/>
+          <parameter key="3" value="maxHeartRate.true.integer.attribute"/>
+          <parameter key="4" value="dateOfTraining.true.date.attribute"/>
+          <parameter key="5" value="elevation.true.real.attribute"/>
+          <parameter key="6" value="uphill.true.real.attribute"/>
+          <parameter key="7" value="downhill.true.real.attribute"/>
+          <parameter key="8" value="length_2d.true.real.attribute"/>
+          <parameter key="9" value="length_3d.true.real.attribute"/>
+          <parameter key="10" value="moving_time.true.real.attribute"/>
+          <parameter key="11" value="stopped_timeRider7.true.real.attribute"/>
+          <parameter key="12" value="9207.true.attribute_value.attribute"/>
+          <parameter key="13" value="112\.83.true.attribute_value.attribute"/>
+          <parameter key="14" value="156.true.attribute_value.attribute"/>
+          <parameter key="15" value="2014-02-28 09:26:20.true.attribute_value.attribute"/>
+          <parameter key="16" value="852\.6.true.attribute_value.attribute"/>
+          <parameter key="17" value="429\.4.true.attribute_value.attribute"/>
+          <parameter key="18" value="423\.2.true.attribute_value.attribute"/>
+          <parameter key="19" value="66517\.21.true.attribute_value.attribute"/>
+          <parameter key="20" value="66552\.37.true.attribute_value.attribute"/>
+          <parameter key="21" value="8998\.0.true.attribute_value.attribute"/>
+          <parameter key="22" value="209\.0.true.attribute_value.attribute"/>
+        </list>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+        <parameter key="datamanagement" value="double_array"/>
+      </operator>
+      <operator activated="true" class="select_attributes" compatibility="7.2.002" expanded="true" height="82" name="Select Attributes" width="90" x="45" y="136">
+        <parameter key="attribute_filter_type" value="subset"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value="dateOfTraining|downhill|duration|elevation|id|length_2d|length_3d|moving_time|uphill|intensity|stopped_time|avgHeartRate|maxHeartRate"/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="attribute_value"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="time"/>
+        <parameter key="block_type" value="attribute_block"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_matrix_row_start"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+      </operator>
+      <operator activated="true" class="multiply" compatibility="7.2.002" expanded="true" height="145" name="Multiply" width="90" x="45" y="238"/>
+      <operator activated="true" class="select_attributes" compatibility="7.2.002" expanded="true" height="82" name="Select Attributes (2)" width="90" x="246" y="340">
+        <parameter key="attribute_filter_type" value="single"/>
+        <parameter key="attribute" value="avgHeartRate"/>
+        <parameter key="attributes" value="avgHeartRate|id"/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="attribute_value"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="time"/>
+        <parameter key="block_type" value="attribute_block"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_matrix_row_start"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+      </operator>
+      <operator activated="true" class="k_means" compatibility="7.2.002" expanded="true" height="82" name="Clustering" width="90" x="380" y="340">
+        <parameter key="add_cluster_attribute" value="true"/>
+        <parameter key="add_as_label" value="false"/>
+        <parameter key="remove_unlabeled" value="false"/>
+        <parameter key="k" value="3"/>
+        <parameter key="max_runs" value="10"/>
+        <parameter key="determine_good_start_values" value="false"/>
+        <parameter key="measure_types" value="NumericalMeasures"/>
+        <parameter key="mixed_measure" value="MixedEuclideanDistance"/>
+        <parameter key="nominal_measure" value="NominalDistance"/>
+        <parameter key="numerical_measure" value="EuclideanDistance"/>
+        <parameter key="divergence" value="SquaredEuclideanDistance"/>
+        <parameter key="kernel_type" value="radial"/>
+        <parameter key="kernel_gamma" value="1.0"/>
+        <parameter key="kernel_sigma1" value="1.0"/>
+        <parameter key="kernel_sigma2" value="0.0"/>
+        <parameter key="kernel_sigma3" value="2.0"/>
+        <parameter key="kernel_degree" value="3.0"/>
+        <parameter key="kernel_shift" value="1.0"/>
+        <parameter key="kernel_a" value="1.0"/>
+        <parameter key="kernel_b" value="0.0"/>
+        <parameter key="max_optimization_steps" value="100"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+      </operator>
+      <operator activated="true" class="filter_examples" compatibility="7.2.002" expanded="true" height="103" name="Filter Examples" width="90" x="246" y="34">
+        <parameter key="parameter_expression" value=""/>
+        <parameter key="condition_class" value="custom_filters"/>
+        <parameter key="invert_filter" value="false"/>
+        <list key="filters_list">
+          <parameter key="filters_entry_key" value="dateOfTraining.gt.02/01/2015"/>
+          <parameter key="filters_entry_key" value="dateOfTraining.le.03/01/2015"/>
+        </list>
+        <parameter key="filters_logic_and" value="true"/>
+        <parameter key="filters_check_metadata" value="true"/>
+      </operator>
+      <operator activated="true" class="generate_id" compatibility="7.2.002" expanded="true" height="82" name="Generate ID" width="90" x="179" y="493">
+        <parameter key="create_nominal_ids" value="false"/>
+        <parameter key="offset" value="0"/>
+      </operator>
+      <operator activated="true" class="generate_attributes" compatibility="7.2.002" expanded="true" height="82" name="Generate Attributes" width="90" x="514" y="391">
+        <list key="function_descriptions">
+          <parameter key="intensity" value="if( cluster == &quot;cluster_1&quot;,3, if(cluster == &quot;cluster_0&quot;,2,if(cluster == &quot;cluster_2&quot;,1,0)))"/>
+        </list>
+        <parameter key="keep_all" value="true"/>
+      </operator>
+      <operator activated="true" class="join" compatibility="7.2.002" expanded="true" height="82" name="Join" width="90" x="380" y="544">
+        <parameter key="remove_double_attributes" value="true"/>
+        <parameter key="join_type" value="inner"/>
+        <parameter key="use_id_attribute_as_key" value="true"/>
+        <list key="key_attributes"/>
+        <parameter key="keep_both_join_attributes" value="false"/>
+      </operator>
+      <operator activated="false" class="rename" compatibility="7.2.002" expanded="true" height="82" name="Rename" width="90" x="112" y="646">
+        <parameter key="old_name" value=""/>
+        <list key="rename_additional_attributes">
+          <parameter key="cluster" value="intensity"/>
+        </list>
+      </operator>
+      <operator activated="true" class="multiply" compatibility="7.2.002" expanded="true" height="103" name="Multiply (2)" width="90" x="514" y="595"/>
+      <operator activated="true" class="write_csv" compatibility="7.2.002" expanded="true" height="82" name="Write CSV (2)" width="90" x="648" y="646">
+        <parameter key="csv_file" value="/Users/gaspergracner/Documents/FERI_MAG/Poletni_semester/Povezljivi_sistemi_in_inteligentne_storitve/psis2017/Project/Data/clusteredIntensity_full.csv"/>
+        <parameter key="column_separator" value=";"/>
+        <parameter key="write_attribute_names" value="true"/>
+        <parameter key="quote_nominal_values" value="true"/>
+        <parameter key="format_date_attributes" value="true"/>
+        <parameter key="append_to_file" value="false"/>
+        <parameter key="encoding" value="SYSTEM"/>
+      </operator>
+      <operator activated="true" class="select_attributes" compatibility="7.2.002" expanded="true" height="82" name="Select Attributes (3)" width="90" x="648" y="544">
+        <parameter key="attribute_filter_type" value="subset"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value="avgHeartRate|dateOfTraining|intensity|id|duration"/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="attribute_value"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="time"/>
+        <parameter key="block_type" value="attribute_block"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_matrix_row_start"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+      </operator>
+      <operator activated="true" class="write_csv" compatibility="7.2.002" expanded="true" height="82" name="Write CSV" width="90" x="782" y="544">
+        <parameter key="csv_file" value="/Users/gaspergracner/Documents/FERI_MAG/Poletni_semester/Povezljivi_sistemi_in_inteligentne_storitve/psis2017/Project/Data/clusteredIntensity_cleaned.csv"/>
+        <parameter key="column_separator" value=";"/>
+        <parameter key="write_attribute_names" value="true"/>
+        <parameter key="quote_nominal_values" value="true"/>
+        <parameter key="format_date_attributes" value="true"/>
+        <parameter key="append_to_file" value="false"/>
+        <parameter key="encoding" value="SYSTEM"/>
+      </operator>
+      <connect from_op="Read CSV" from_port="output" to_op="Select Attributes" to_port="example set input"/>
+      <connect from_op="Select Attributes" from_port="example set output" to_op="Multiply" to_port="input"/>
+      <connect from_op="Multiply" from_port="output 1" to_op="Filter Examples" to_port="example set input"/>
+      <connect from_op="Multiply" from_port="output 2" to_port="result 2"/>
+      <connect from_op="Multiply" from_port="output 3" to_op="Select Attributes (2)" to_port="example set input"/>
+      <connect from_op="Multiply" from_port="output 4" to_op="Generate ID" to_port="example set input"/>
+      <connect from_op="Select Attributes (2)" from_port="example set output" to_op="Clustering" to_port="example set"/>
+      <connect from_op="Clustering" from_port="cluster model" to_port="result 3"/>
+      <connect from_op="Clustering" from_port="clustered set" to_op="Generate Attributes" to_port="example set input"/>
+      <connect from_op="Filter Examples" from_port="example set output" to_port="result 1"/>
+      <connect from_op="Generate ID" from_port="example set output" to_op="Join" to_port="right"/>
+      <connect from_op="Generate Attributes" from_port="example set output" to_op="Join" to_port="left"/>
+      <connect from_op="Join" from_port="join" to_op="Multiply (2)" to_port="input"/>
+      <connect from_op="Multiply (2)" from_port="output 1" to_op="Select Attributes (3)" to_port="example set input"/>
+      <connect from_op="Multiply (2)" from_port="output 2" to_op="Write CSV (2)" to_port="input"/>
+      <connect from_op="Select Attributes (3)" from_port="example set output" to_op="Write CSV" to_port="input"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+      <portSpacing port="sink_result 3" spacing="0"/>
+      <portSpacing port="sink_result 4" spacing="0"/>
+    </process>
+  </operator>
+</process>
