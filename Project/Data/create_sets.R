@@ -1,5 +1,5 @@
-
-setwd("/Users/luka/Documents/GitRepos/psis2017.git/Project/Data")
+# should set working dir
+setwd("/path/to/working/dir")
 
 weekSummry = read.csv2("ridersWeek.csv")
 
