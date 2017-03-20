@@ -140,7 +140,7 @@ def parserMain(directoryPath, outDirectoryPath):
 
 def joinFiles(dirPath, outFilePath):
     outFile = open(outFilePath, "w")
-    outFile.write(header)
+    outFile.write(header + '\n')
 
     for fileName in os.listdir(dirPath):
         with open(dirPath + fileName) as f:
