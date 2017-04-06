@@ -1,0 +1,168 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[slovene]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{listings}
+\usepackage{babelbib}
+\usepackage{url}
+
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+\usepackage{subfigure}
+
+\usepackage{underscore}
+\renewcommand{\lstlistingname}{Primer}% Listing -> Primer
+
+\lstset{
+numbers=left, 
+numberstyle=\small, 
+numbersep=8pt, 
+frame = single, 
+language=Python, 
+framexleftmargin=15pt}
+
+\setlength{\parindent}{0pt}
+%BORDERS
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=30mm,
+ right=25mm,
+ top=30mm,
+ bottom=30mm
+ }
+
+\begin{document}
+\begin{titlepage}
+
+
+% ZAČETNA STRAN
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+ 
+%----------------------------------------------------------------------------------------
+%	HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+\textsc{ UNIVERZA V MARIBORU\\ FAKULTETA ZA ELEKTROTEHNIKO,\\RAČUNALNIŠTVO IN INFORMATIKO}\\[5cm] % Name of your university/college
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+{ \huge \bfseries \textbf{Sprint 2}}\\[0.4cm] % Title of your document
+\textsc{\large Povezljivi sistemi in inteligentne storitve}\\[5cm] % Minor heading such as course title
+
+%----------------------------------------------------------------------------------------
+%	AUTHORS SECTION
+%----------------------------------------------------------------------------------------
+{\large Gašper Gračner}\\[0.4cm]
+{\large Martin Oprešnik}\\[0.4cm]
+{\large Luka Koštomaj}\\[0.4cm] 
+
+%----------------------------------------------------------------------------------------
+%	DATE SECTION
+%----------------------------------------------------------------------------------------
+\vfill % Fill the rest of the page with whitespace
+{\large Maribor, April 2016}\\[3cm] % Date, change the \today to a set date if you want to be precise
+\end{titlepage}
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	CONTENT SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Predvidene naloge}
+V drugem sprintu smo si vsi zadali analizo oz. testiranje izbranih metod strojnega učenja.
+	\begin{enumerate}
+		\item{Analiza parametrov in delovanja metode SVM (Gašper),}
+		\item{Analiza parametrov in izbira ustreznega modela nevronskih mrež (Luka),}
+		\item{Analiza delovanja metode odločitveno drevo (Martin),}
+		\item{Prilagoditev podatkov}
+	\end{enumerate}
+	
+
+\newpage
+\section{ SVM (Gašper Gračner)}
+
+\subsection{Prednosti SVM}
+\begin{enumerate}
+	\item{Deluje v večdimenzionalnem prostoru,}
+	\item{Efektiven je tudi v primerih, ko je število atributov večj kot število primerkov,}
+	\item{Prostorsko učinkovit,}
+	\item{Podpira različne funkcije jedra (lahko tudi uporabniške)}
+\end{enumerate}
+
+\subsection{Slabosti SVM}
+\begin{enumerate}
+	\item{Slabša učinkovitost v primeru da je število atributov veliko večje od števila primerkov,}
+	\item{SVM-ji direktno ne določajo verjetnosti, zato je ta izračunana s pomočjo \textit{five-fold cross-validation}}
+\end{enumerate}
+
+\subsection{Analiza parametrov}
+
+\subsubsection{kernel}
+	Določa tip jedra (fukcijo za razmejitev), ki bo uporabljen pri algoritmu:
+	\begin{itemize}
+		\item{'linear',}
+		\item{'poly',}
+		\item{'rfb' (privzeto),}
+		\item{'sigmoid',}
+	\end{itemize}
+	
+
+\subsubsection{degree}
+	Upošteva se le v primeru, da je izbran \textit(kernel='poly'), določa pa stopnjo polinoma.
+
+\subsubsection{gamma}
+	Koeficient jedra, v primeru da je nastavljen \textit{'auto'} je vrednost \textit{1/n_features}. Samo pri jedrih 'rfb', 'poly' in 'sigmoid'.
+	
+\subsubsection{coef0}
+	Neodvisna vrednost jedrne funkcije. ('poly','sigmoid').
+
+\subsubsection{probability}
+	Če želimo da nam metoda izračuna še verjetnost. Privzeta vrednost je 'False'.
+
+\subsubsection{shrinking}
+	Skrčitvena hevristika, privzeta vrednost je \textit{'True'}.
+
+\subsubsection{tol}
+	Toleranca pri zaustavitvenem kriteriju, privzeta vrednost je \textit{1e-3}.
+	
+\subsubsection{cache_size}
+	Velikost pomnilnika funkcije jedra v MB.
+
+\subsubsection{class_weight}
+	Obtežitev razdredov, če paramaeter ni podan so vsi razredi enakovredni.
+
+\subsubsection{verbose}
+	Omogočanje verbose izhoda.
+
+\subsubsection{max_iter}
+	Določanje maximalnega števila iteracij. Vrednost \textit{-1} pomeni, da število iteracij ni omejeno.
+
+\subsubsection{decision_function_shape}
+	Določitev izhoda odločitvene funkcije.
+	\begin{itemize}
+		\item{'ovo'  - (n_samples, n_classes * (n_classes - 1) / 2),}
+		\item{'ovr'  - (n_samples, n_classes) }
+		\item{None  - deprecated,}
+	\end{itemize}
+
+\subsubsection{random_state}
+	Določitev zrna pri izbiri naključnih vrednosti.
+
+
+
+\section{Nevronske mreže (Luka Koštomaj)}
+
+
+ 
+\section{Odločitveno drevo (Martin Oprešnik) }
+
+
+
+\end{document}
