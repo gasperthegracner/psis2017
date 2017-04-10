@@ -21,11 +21,10 @@ class NN:
     def run(self):
         """ Run neural networks classifier
         """
-        clf = MLPClassifier(solver='lbfgs')
+        clf = MLPClassifier(solver='lbfgs', hidden_layer_sizes=(1, 1000))
         clf.fit(self.trainSet, self.trainSetClasses)
         score = clf.score(self.testSet, self.testSettClasses)
 
         return {
             "score": score
         }
-
