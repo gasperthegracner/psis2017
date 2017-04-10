@@ -155,11 +155,29 @@ V drugem sprintu smo si vsi zadali analizo oz. testiranje izbranih metod strojne
 \subsubsection{random_state}
 	Določitev zrna pri izbiri naključnih vrednosti.
 
-
-
 \section{Nevronske mreže (Luka Koštomaj)}
+V tem sprintu sem implementiral nevronske mreže s pomočjo knjižice scikit-learn.
+Na testni množici je algroitem dosegel 70% natančnost.
+Potrebno bo popraviti testno množico, da bomo lahko dosegli boljši rezultat.
 
+\subsection{Analiza parametrov}
+	Opisani so uporabljeni parametri, ki sem jih uporabil pri izdelavi nevronske mreže.
 
+	\subsubsection{solver}
+		poseben parameter, kjer nastavimo kateri algoritem se uporablja pri distribuciji teže
+		lbfgs - quasi-Newton metoda,
+		sgd - stochastic gradient descent,
+		adam - stochastic gradient-based optimizer (Kingma, Diederik, Jimmy Ba).
+
+	\subsubsection{hidden_layer_sizes}
+		je število neuronov v skritem sloju.
+
+	\subsubsection{activation}
+		izbira funkcije
+		identity - f(x) = x
+		logistic - f(x) = 1 / (1 + exp(-x)).
+		tanh - f(x) = tanh(x).
+		relu - f(x) = max(0, x)
  
 \section{Odločitveno drevo (Martin Oprešnik) }
 
