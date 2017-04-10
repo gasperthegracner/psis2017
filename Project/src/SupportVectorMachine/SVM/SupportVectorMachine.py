@@ -1,6 +1,6 @@
 from sklearn.svm import SVC
 import numpy as np
-from DataReader import DataReader as dr
+from src.Shared.DataReader import DataReader as dr
 
 
 class SVM:
