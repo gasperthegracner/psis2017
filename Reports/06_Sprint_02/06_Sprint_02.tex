@@ -163,6 +163,48 @@ V drugem sprintu smo si vsi zadali analizo oz. testiranje izbranih metod strojne
  
 \section{Odločitveno drevo (Martin Oprešnik) }
 
+\subsection{Prednosti TD}
+	Glavna prednost odločitvenega drevesa je, da se naučeni model spremeni v pravila odločanja, ki so enostavna za interpretacijo, poleg tega pa so opremljeni z verjetnostmi. Tako lahko poleg klasifikacije dobimo tudi verjetnost, možne alternative in razloge, zakaj je primerek klasificiran v ta razred.
+
+\subsection{Slabosti TD}
+	Prednost dobijo atributi, ki imajo več nivojev.
+	Učenje postane računsko zahtevno, še posebej, kadar imamo veliko mankajočih vrednosti.
+	
+\subsection{Analiza parametrov}
+\subsubsection{criterian}
+Kriterij, ki določa kvaliteto deljenja vozlišča
+
+\subsubsection{splitter}
+Strategija deljenja vozlišč
+
+\subsubsection{max_features}
+število, ki pove, koliko atributov bo upoštevanih pri učenju. Privzeto se upoštevajo vsi atributi,  nastavimo pa lahko absolutno število, odstotek, koren ali dvojiški logaritem vseh atributov.
+
+\subsubsection{max_depth}
+Maksimalna globina odločitvenega drevesa. Če parameter nastavimo na None, se drevo deli dokler niso vsi listi čisti (vsi primerki so v istem razredu ali za ta pogoj ni primerka)
+
+\subsubsection{min_samples_split}
+Koliko primerkov mora vsebovati vozlišče, da se lahko deli na več delov. Nastavimo lahko število primerkov ali odstotek.
+
+\subsubsection{min_samples_leaf}
+Minimalno število ali odstotek primerkov na listih
+
+\subsubsection{min_weight_fraction_leaf}
+Minimalni delež teže lista je delež seštevka uteži na listu drevesa. Če ne podamo uteži za primerke, imajo vsi primerki enako utež.
+
+\subsubsection{max_leaf_nodes}
+Maksimalno število listov
+
+\subsubsection{random_state}
+Seme ali RandomState objekt, ki se uporablja pri generiranju naključnih vrednosti
+
+\subsubsection{min_impurity_split}
+Vozlišče se razdeli v dva dela, če je "nečistost" vozlišča nad tem parametrom
+
+\subsubsection{presort}
+Sortiranje podatkov pred učenjem. Lahko pohitri učenje v nekaterih primerih.
+
+
 
 
 \end{document}
