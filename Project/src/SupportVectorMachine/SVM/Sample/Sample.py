@@ -38,5 +38,5 @@ testPath = "../../../../Data/week_riders_random_test.csv"
 svm = SVM(classFeatures, classificationResult, classes, trainPath, testPath, ";")
 result = svm.run()
 
-print "Mean sample accuracy: " + str(result["score"]) + "%"
+print("Mean sample accuracy: " + str(result["score"] * 100) + "%")
 
