@@ -15,10 +15,10 @@ class DataReader:
     def readSet(self, path, delimiter):
         my_file = Path(path)
         if not my_file.is_file():
-            print "File does not exist!"
+            print("File does not exist!")
             return []
 
-        self.trainingSet = genfromtxt(path, delimiter=delimiter, dtype=None)
+        self.trainingSet = genfromtxt(path, delimiter=delimiter, dtype=None).astype(str)
         self.ExtractData(self.trainingSet, True)
 
         return {
@@ -38,6 +38,7 @@ class DataReader:
             header = dataset[0]
 
         for entry in self.features:
+            tmp = np.where(header == entry[0])
             indexes.append(np.where(header == entry[0])[0][0])
 
         classInd = np.where(header == self.classification)[0][0]
