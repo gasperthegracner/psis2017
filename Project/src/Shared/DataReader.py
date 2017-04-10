@@ -15,10 +15,10 @@ class DataReader:
     def readSet(self, path, delimiter):
         my_file = Path(path)
         if not my_file.is_file():
-            print "File does not exist!"
+            print("File does not exist!")
             return []
 
-        self.trainingSet = genfromtxt(path, delimiter=delimiter, dtype=None)
+        self.trainingSet = genfromtxt(path, delimiter=delimiter, dtype=None).astype(str)
         self.ExtractData(self.trainingSet, True)
 
         return {
