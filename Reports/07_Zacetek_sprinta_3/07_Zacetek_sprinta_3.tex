@@ -1,0 +1,105 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[slovene]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{listings}
+\usepackage{babelbib}
+\usepackage{url}
+
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+\usepackage{underscore}
+\renewcommand{\lstlistingname}{Primer}% Listing -> Primer
+
+\lstset{
+numbers=left, 
+numberstyle=\small, 
+numbersep=8pt, 
+frame = single, 
+language=Python, 
+framexleftmargin=15pt}
+
+\setlength{\parindent}{0pt}
+%BORDERS
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=30mm,
+ right=25mm,
+ top=30mm,
+ bottom=30mm
+ }
+
+\begin{document}
+\begin{titlepage}
+
+
+% ZAČETNA STRAN
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+ 
+%----------------------------------------------------------------------------------------
+%	HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+\textsc{ UNIVERZA V MARIBORU\\ FAKULTETA ZA ELEKTROTEHNIKO,\\RAČUNALNIŠTVO IN INFORMATIKO}\\[5cm] % Name of your university/college
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+{ \huge \bfseries \textbf{ZAČETEK SPRINTA 3}}\\[0.4cm] % Title of your document
+\textsc{\large Povezljivi sistemi in inteligentne storitve}\\[5cm] % Minor heading such as course title
+
+%----------------------------------------------------------------------------------------
+%	AUTHORS SECTION
+%----------------------------------------------------------------------------------------
+{\large Gašper Gračner}\\[0.4cm]
+{\large Martin Oprešnik}\\[0.4cm]
+{\large Luka Koštomaj}\\[0.4cm] 
+
+%----------------------------------------------------------------------------------------
+%	DATE SECTION
+%----------------------------------------------------------------------------------------
+\vfill % Fill the rest of the page with whitespace
+{\large Maribor, April 2016}\\[3cm] % Date, change the \today to a set date if you want to be precise
+\end{titlepage}
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	CONTENT SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Predvidene naloge}
+V drugem sprintu smo si vsi zadali analizo oz. testiranje izbranih metod strojnega učenja.
+	\begin{enumerate}
+		\item{Gašper Gračner- Optimizacija parametrov SVM,}
+		\item{Luka Koštomaj - Izboljšava učenja nevronske mreže,}
+		\item{Martin Oprešnik - Priporočanje treninga}
+	\end{enumerate}
+	
+\begin{figure}[h]
+\caption{Zaslonska slika odprtih nalog}
+\centering
+\includegraphics[width=1\textwidth]{issues}
+\end{figure}
+
+\newpage
+\section{Gašper Gračner- Optimizacija parametrov SVM}
+Po analizi parametrov se bom lotil same implementacije rešitve in prilaganja parametrov, za naš problem, saj predvidevam, da bom s prilagajanjem paramtrov lahko rahlo izboljšal začetno rešitev. Zasnoval pa si bom še tesno množico, v primeru, da tega ne bomo uspeli v prvem sprintu.
+
+\section{Luka Koštomaj - Izboljšava učenja nevronske mreže}
+
+V tretjem sprintu bom implementiral nevronsko mrežo oz. izboljšal učenje nevronske mreže.
+
+\section{Martin Oprešnik - Priporočanje treninga }
+
+V tretjem sprintu bom poskusil implementirati priporočanje treninga. Odločitveno drevo se bo naučilo kak trening je priporočen za podanega uporabnika. Te rezultate bom primerjal s testno množico. 
+
+
+
+
+\end{document}
