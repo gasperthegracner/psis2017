@@ -30,7 +30,7 @@ classes = {
     "bad": 0,
     "good": 1
 }
-classificationResult = "bestAtlethes"
+classificationResult = "weekIntensity"
 
 trainPath = "../../../../Data/week_riders_random_train.csv"
 testPath = "../../../../Data/week_riders_random_test.csv"
