@@ -36,13 +36,21 @@ trainPath = "../../../../Data/week_riders_random_train.csv"
 testPath = "../../../../Data/week_riders_random_test.csv"
 
 svm = SVM(classFeatures, classificationResult, classes, trainPath, testPath, ";")
+
 result = svm.run(kernel="linear")
-# result = svm.run(kernel="poly")
-# result = svm.run(kernel="rbr")
-# result = svm.run(kernel="sigmoid")
+print("(kernel=\"linear\") Mean sample accuracy: " + str(result["score"] * 100) + "%")
 
-#Consider pre-processing your data with StandardScaler or MinMaxScaler.
+# ConvergenceWarning: Solver terminated early (max_iter=50000).
+# Consider pre-processing your data with StandardScaler or MinMaxScaler.% self.max_iter, ConvergenceWarning)
+result = svm.run(kernel="linear", max_iter=50000)
+print("(kernel=\"linear\", max_iter=50000) Mean sample accuracy: " + str(result["score"] * 100) + "%")
 
+result = svm.run(kernel="linear", decision_function_shape="ovo")
+print("(kernel=\"linear\", decision_function_shape=\"ovo\") Mean sample accuracy: " + str(result["score"] * 100) + "%")
 
-print("Mean sample accuracy: " + str(result["score"] * 100) + "%")
+result = svm.run(kernel="linear", decision_function_shape="ovr")
+print("(kernel=\"linear\", decision_function_shape=\"ovr\") Mean sample accuracy: " + str(result["score"] * 100) + "%")
+
+result = svm.run(kernel="linear", shrinking=False)
+print("(kernel=\"linear\", shrinking=False) Mean sample accuracy: " + str(result["score"] * 100) + "%")
 

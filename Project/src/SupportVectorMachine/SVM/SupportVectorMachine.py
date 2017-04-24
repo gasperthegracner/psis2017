@@ -17,8 +17,11 @@ class SVM:
         self.testSet = result2["set"]
         self.testSettClasses = result2["classes"]
 
-    def run(self):
-        clf = SVC()
+    def run(self, kernel="rbf", max_iter=-1, decision_function_shape=None, shrinking=True):
+        clf = SVC(kernel=kernel,
+                  max_iter=max_iter,
+                  decision_function_shape=decision_function_shape,
+                  shrinking=shrinking)
         clf.fit(self.trainSet, self.trainSetClasses)
         score = clf.score(self.testSet, self.testSettClasses)
 
