@@ -1,4 +1,5 @@
 from Project.src.SupportVectorMachine.SVM.SupportVectorMachine import SVM, np
+from Project.src.Shared.Recomender import Recommender
 
 classFeatures = [("mon_intensity", np.float),
                  ("mon_duration", np.float),
@@ -33,10 +34,14 @@ classes = {
 classificationResult = "bestAtlethes"
 
 trainPath = "../../../../Data/week_riders_random_train.csv"
-testPath = "../../../../Data/week_riders_random_test.csv"
+
+
+r = Recommender(filename="../../../../Data/clusteredIntensity_cleaned.csv",
+                savetofile="../../../../Data/generated_trainings.csv")
+testPath = r.generate_possible_combinations(min_intensity=0, max_intensity=1)
 
 svm = SVM(classFeatures, classificationResult, classes, trainPath, testPath, ";")
-result = svm.run(kernel="linear")
+result = svm.predict(kernel="linear")
 # result = svm.run(kernel="poly")
 # result = svm.run(kernel="rbr")
 # result = svm.run(kernel="sigmoid")
