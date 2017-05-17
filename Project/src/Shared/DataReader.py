@@ -40,9 +40,13 @@ class DataReader:
         for entry in self.features:
             indexes.append(np.where(header == entry[0])[0][0])
 
-        classInd = np.where(header == self.classification)[0][0]
+        try:
+            classInd = np.where(header == self.classification)[0][0]
+            self.classificationArr = self.trainingSet[1:, classInd].astype(str)
+        except:
+            self.classificationArr = []
+            print("Warning: no class attribute")
 
-        self.classificationArr = self.trainingSet[1:, classInd].astype(str)
         self.trainingSet = self.trainingSet[1:, indexes]
 
         # Convert types of features
@@ -52,10 +56,12 @@ class DataReader:
 
         self.trainingSet = tmp
 
+
         # Discretization of class feature
         for ind, c in enumerate(self.classificationArr):
             c = c.replace("\"", "")
             self.classificationArr[ind] = self.discreteClasses[c]
+
 
 
 
