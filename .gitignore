@@ -1,4 +1,4 @@
 *.directory
 *.pdf
 *.pyc
-
+.idea/
