@@ -1,6 +1,6 @@
 from sklearn import tree
 
-from src.Shared.DataReader import DataReader as dr
+from Project.src.Shared.DataReader import DataReader as dr
 
 
 class DT:
@@ -26,3 +26,13 @@ class DT:
             "score": score
         }
 
+    def predict(self):
+        clf = tree.DecisionTreeClassifier()
+
+        clf.fit(self.trainSet, self.trainSetClasses)
+        predicted = clf.predict(self.testSet)
+
+        return {
+                "prediction": predicted,
+                "set": self.testSet
+            }

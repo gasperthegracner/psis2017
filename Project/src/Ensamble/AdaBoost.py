@@ -1,6 +1,6 @@
 from sklearn.ensemble import AdaBoostClassifier
 
-from src.Shared.DataReader import DataReader as dr
+from Project.src.Shared.DataReader import DataReader as dr
 
 
 class ADAB:
@@ -27,3 +27,13 @@ class ADAB:
             "score": score
         }
 
+    def predict(self):
+        clf = AdaBoostClassifier(n_estimators=100)
+
+        clf.fit(self.trainSet, self.trainSetClasses)
+        predicted = clf.predict(self.testSet)
+
+        return {
+                "prediction": predicted,
+                "set": self.testSet
+            }

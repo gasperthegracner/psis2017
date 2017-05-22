@@ -1,5 +1,6 @@
 from Project.src.DecisionTree.DecisionTree import DT
 import numpy as np
+from Project.src.Shared.Recomender import Recommender
 
 classFeatures = [("mon_intensity", np.float),
                  ("mon_duration", np.float),
@@ -21,11 +22,11 @@ classFeatures = [("mon_intensity", np.float),
                  ("sat_hr", np.float),
                  ("sun_intensity", np.float),
                  ("sun_duration", np.float),
-                 ("sun_hr", np.float),
-                 ("weekIntensity", np.float),
-                 ("weekDuration", np.float),
-                 ("weekHearthrate", np.float),
-                 ("weekOveral", np.float)
+                 ("sun_hr", np.float)#,
+                 # ("weekIntensity", np.float),
+                 # ("weekDuration", np.float),
+                 # ("weekHearthrate", np.float),
+                 # ("weekOveral", np.float)
                  ]
 classes = {
     "bad": 0,
@@ -34,10 +35,11 @@ classes = {
 classificationResult = "bestAtlethes"
 
 trainPath = "../../../Data/week_riders_random_train.csv"
-testPath = "../../../Data/week_riders_random_test.csv"
+
+
+r = Recommender(filename="../../../Data/clusteredIntensity_cleaned.csv",
+                savetofile="../../../Data/generated_trainings.csv")
+testPath = r.generate_possible_combinations(min_intensity=0, max_intensity=1)
 
 dt = DT(classFeatures, classificationResult, classes, trainPath, testPath, ";")
-result = dt.run()
-
-print("Mean sample accuracy: " + str(result["score"] * 100) + "%")
-
+result = dt.predict()
