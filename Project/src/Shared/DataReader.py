@@ -36,7 +36,7 @@ class DataReader:
         if header:
             self.trainingSet = dataset
             header = dataset[0]
-        import pdb; pdb.set_trace()
+        #import pdb; pdb.set_trace()
         for entry in self.features:
             indexes.append(np.where(header == entry[0])[0][0])
 

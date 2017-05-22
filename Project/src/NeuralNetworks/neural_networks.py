@@ -1,6 +1,6 @@
 from sklearn.neural_network import MLPClassifier
 import numpy as np
-from src.Shared.DataReader import DataReader as dr
+from Project.src.Shared.DataReader import DataReader as dr
 
 
 class NN:
@@ -8,6 +8,7 @@ class NN:
     def __init__(self, features, classificationFeature, classes, trainigSetPath, testSetPath, delimiter):
         """ Main class forNeural Networks
         """
+        self.classificationFeature = classificationFeature
         reader1 = dr(features, classificationFeature, classes)
         result1 = reader1.readSet(trainigSetPath, delimiter)
         self.trainSet = result1["set"]
@@ -18,13 +19,28 @@ class NN:
         self.testSet = result2["set"]
         self.testSettClasses = result2["classes"]
 
-    def run(self):
+    def run(self, solver="sgd", activation="tanh", hidden_size=(100, 1000)):
         """ Run neural networks classifier
         """
-        clf = MLPClassifier(activation='tanh', solver='sgd', hidden_layer_sizes=(100, 1000))
+        clf = MLPClassifier(activation=activation,
+                            solver=solver,
+                            hidden_layer_sizes=hidden_size)
         clf.fit(self.trainSet, self.trainSetClasses)
         score = clf.score(self.testSet, self.testSettClasses)
 
         return {
             "score": score
         }
+
+    def predict(self, solver="sgd", activation="tanh", hidden_size=(100, 1000)):
+        clf = MLPClassifier(activation=activation,
+                            solver=solver,
+                            hidden_layer_sizes=hidden_size)
+
+        clf.fit(self.trainSet, self.trainSetClasses)
+        predicted = clf.predict(self.testSet)
+
+        return {
+                "prediction": predicted,
+                "set": self.testSet
+            }
