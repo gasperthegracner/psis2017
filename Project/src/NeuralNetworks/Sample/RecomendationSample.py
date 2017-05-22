@@ -43,5 +43,4 @@ testPath = r.generate_possible_combinations(min_intensity=0, max_intensity=1)
 nn = NN(classFeatures, classificationResult, classes, trainPath, testPath, ";")
 result = nn.predict()
 
-print("Mean sample accuracy: " + str(result["score"] * 100) + "%")
 
