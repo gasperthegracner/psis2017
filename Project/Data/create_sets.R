@@ -68,8 +68,14 @@ write.csv2(bestAthletesTestSetMerge, file = "bestAthletes_test.csv")
 
 # create random test pool
 randomTrainDF = randomRows(weekSummry, 400)
+randomSumDF = randomRows(weekSummry, 100)
+randomSumDF$bestAtlethes = ifelse(randomSumDF$bestAtlethes == "good", "bad", "good")
+randomTrainDF = rbind(randomTrainDF, randomSumDF)
 write.csv2(randomTestDF, file = "week_riders_random_train.csv")
 randomTestDF = randomRows(weekSummry, 400)
+randomTestSumDF = randomRows(weekSummry, 100)
+randomTestSumDF$bestAtlethes = ifelse(randomTestSumDF$bestAtlethes == "good", "bad", "good")
+randomTestDF = rbind(randomTestDF, randomTestSumDF)
 write.csv2(randomTestDF, file = "week_riders_random_test.csv")
 
 # trainig set without rider 1 and 2
