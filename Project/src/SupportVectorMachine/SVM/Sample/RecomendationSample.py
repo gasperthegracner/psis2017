@@ -42,12 +42,3 @@ testPath = r.generate_possible_combinations(min_intensity=0, max_intensity=1)
 
 svm = SVM(classFeatures, classificationResult, classes, trainPath, testPath, ";")
 result = svm.predict(kernel="linear")
-# result = svm.run(kernel="poly")
-# result = svm.run(kernel="rbr")
-# result = svm.run(kernel="sigmoid")
-
-#Consider pre-processing your data with StandardScaler or MinMaxScaler.
-
-
-print("Mean sample accuracy: " + str(result["score"] * 100) + "%")
-
