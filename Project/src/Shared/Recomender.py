@@ -67,7 +67,6 @@ class Recommender:
             week = []
             for i in range(0, 7):
                 take_day = random.randrange(2)
-                print()
                 if take_day == 1 and num_of_true <= days:
                     num_of_true += 1
                     fited_ind = random.randrange(len_of_fitted)

@@ -1,4 +1,4 @@
-from src.Ensamble.AdaBoost import ADAB
+from Project.src.Ensamble.AdaBoost import ADAB
 import numpy as np
 
 classFeatures = [("mon_intensity", np.float),
@@ -21,11 +21,11 @@ classFeatures = [("mon_intensity", np.float),
                  ("sat_hr", np.float),
                  ("sun_intensity", np.float),
                  ("sun_duration", np.float),
-                 ("sun_hr", np.float)#,
-                 #("weekIntensity", np.float),
-                 #("weekDuration", np.float),
-                 #("weekHearthrate", np.float),
-                 #("weekOveral", np.float)
+                 ("sun_hr", np.float),
+                 ("weekIntensity", np.float),
+                 ("weekDuration", np.float),
+                 ("weekHearthrate", np.float),
+                 ("weekOveral", np.float)
                  ]
 classes = {
     "bad": 0,
