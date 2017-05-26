@@ -1,4 +1,4 @@
-from src.SupportVectorMachine.SVM.SupportVectorMachine import SVM, np
+from Project.src.SupportVectorMachine.SVM.SupportVectorMachine import SVM, np
 
 classFeatures = [("mon_intensity", np.float),
                  ("mon_duration", np.float),
