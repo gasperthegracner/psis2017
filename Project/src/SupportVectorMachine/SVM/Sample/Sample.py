@@ -36,7 +36,7 @@ trainPath = "../../../../Data/week_riders_random_train.csv"
 testPath = "../../../../Data/week_riders_random_test.csv"
 
 svm = SVM(classFeatures, classificationResult, classes, trainPath, testPath, ";")
-result = svm.run(kernel="linear")
+result = svm.run(kernel="rbf")
 # result = svm.run(kernel="poly")
 # result = svm.run(kernel="rbr")
 # result = svm.run(kernel="sigmoid")

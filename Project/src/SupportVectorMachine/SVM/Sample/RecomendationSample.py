@@ -1,5 +1,6 @@
 from Project.src.SupportVectorMachine.SVM.SupportVectorMachine import SVM, np
 from Project.src.Shared.Recomender import Recommender
+from Project.helpers.RecommentationOutputBuilder import RecommendationOutputBulder as ROB
 
 classFeatures = [("mon_intensity", np.float),
                  ("mon_duration", np.float),
@@ -42,3 +43,8 @@ testPath = r.generate_possible_combinations(min_intensity=0, max_intensity=1)
 
 svm = SVM(classFeatures, classificationResult, classes, trainPath, testPath, ";")
 result = svm.predict(kernel="linear")
+
+rob = ROB(result)
+json_string = rob.get_json_string(5)
+
+print(json_string)
