@@ -1,0 +1,145 @@
+<html>
+<head>
+  <title>Data vizualization</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script src="https://use.fontawesome.com/8aabc3d65b.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="form-group">
+      <label for="input_data">Raw data:</label>
+      <textarea class="form-control" rows="10" id="input_data"></textarea>
+    </div>
+    <div class="form-group">
+      <input id="run" type="button" class="btn btn-primary" value="Vizualize" />
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <ul id="tabs_header" class="nav nav-tabs">
+    </ul>
+
+    <div id="tab_content" class="tab-content">
+    </div>
+  </div>
+</div>
+
+<script>
+  var toHHMMSS = (secs) => {
+      var sec_num = parseInt(secs, 10)
+      var hours   = Math.floor(sec_num / 3600) % 24
+      var minutes = Math.floor(sec_num / 60) % 60
+      var seconds = sec_num % 60
+      return [hours,minutes,seconds]
+          .map(v => v < 10 ? "0" + v : v)
+          .filter((v,i) => v !== "00" || i > 0)
+          .join(":")
+  }
+
+  $("#run").click(function(){
+      var parsed = JSON.parse($("#input_data").val())
+      console.log(parsed);
+
+      for(var i = 0; i<parsed.length; i++){
+        class_active = "";
+        if( i == 0)
+        {
+          class_active = "active"
+        }
+
+        // Add headers with links
+        $("#tabs_header").append('<li class="'+class_active+'"><a data-toggle="tab" href="#recommend'+i+'">Recomendation '+i+'</a></li>');
+
+        var tab_content = $('<div id="recommend'+i+'" class="tab-pane fade in '+class_active+'">');
+        tab_content.append('<h3>Timetable<h3>')
+
+        var table = $('<table class="table table-striped"> \
+                        <thead>\
+                          <tr>\
+                            <th><i class="fa fa-calendar" aria-hidden="true"></i> Day</th>\
+                            <th><i class="fa fa-clock-o" aria-hidden="true"></i> Duration  [HH:MM:SS] </th>\
+                            <th><i class="fa fa-heartbeat" aria-hidden="true"></i> Avg. heart rate</th>\
+                            <th><i class="fa fa-line-chart" aria-hidden="true"></i> Intensity</th>\
+                          </tr>\
+                        </thead>\
+                      </table>');
+
+        var table_body= $('<tbody>\
+            <tr>\
+              <td>Monday</td>\
+              <td>'+toHHMMSS(parsed[i]["mon_duration"])+'</td>\
+              <td>'+parsed[i]["mon_hr"]+'</td>\
+              <td>'+parsed[i]["mon_intensity"]+'</td>\
+            </tr>\
+            <tr>\
+              <td>Tuesday</td>\
+              <td>'+toHHMMSS(parsed[i]["tue_duration"])+'</td>\
+              <td>'+parsed[i]["tue_hr"]+'</td>\
+              <td>'+parsed[i]["tue_intensity"]+'</td>\
+            </tr>\
+            <tr>\
+              <td>Wednesday</td>\
+              <td>'+toHHMMSS(parsed[i]["wed_duration"])+'</td>\
+              <td>'+parsed[i]["wed_hr"]+'</td>\
+              <td>'+parsed[i]["wed_intensity"]+'</td>\
+            </tr>\
+            <tr>\
+              <td>Thursday</td>\
+              <td>'+toHHMMSS(parsed[i]["thu_duration"])+'</td>\
+              <td>'+parsed[i]["thu_hr"]+'</td>\
+              <td>'+parsed[i]["thu_intensity"]+'</td>\
+            </tr>\
+            <tr>\
+              <td>Friday</td>\
+              <td>'+toHHMMSS(parsed[i]["fri_duration"])+'</td>\
+              <td>'+parsed[i]["fri_hr"]+'</td>\
+              <td>'+parsed[i]["fri_intensity"]+'</td>\
+            </tr>\
+            <tr>\
+              <td>Saturday</td>\
+              <td>'+toHHMMSS(parsed[i]["sat_duration"])+'</td>\
+              <td>'+parsed[i]["sat_hr"]+'</td>\
+              <td>'+parsed[i]["sat_intensity"]+'</td>\
+            </tr>\
+            <tr>\
+              <td>Sunday</td>\
+              <td>'+toHHMMSS(parsed[i]["sun_duration"])+'</td>\
+              <td>'+parsed[i]["sun_hr"]+'</td>\
+              <td>'+parsed[i]["sun_intensity"]+'</td>\
+            </tr>\
+          </tbody>');
+
+
+
+
+        table.append(table_body);
+        tab_content.append(table);
+        $("#tab_content").append(tab_content);
+      }
+
+
+
+  });
+</script>
+
+</body>
+
+</html>
