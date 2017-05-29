@@ -1,0 +1,104 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[slovene]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{listings}
+\usepackage{babelbib}
+\usepackage{url}
+
+\usepackage{graphicx}
+\usepackage{float}
+\graphicspath{ {images/} }
+\usepackage[usenames, dvipsnames]{color}
+
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+
+\usepackage{underscore}
+\renewcommand{\lstlistingname}{Primer}% Listing -> Primer
+
+\usepackage{amsmath}
+\usepackage{bm}
+
+\usepackage{array}
+\usepackage{tabu}
+
+\lstset{
+numbers=left, 
+numberstyle=\small, 
+numbersep=8pt, 
+frame = single, 
+language=Python, 
+framexleftmargin=15pt}
+
+\setlength{\parindent}{0pt}
+%BORDERS
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=30mm,
+ right=25mm,
+ top=30mm,
+ bottom=30mm
+ }
+
+\begin{document}
+
+\huge { Priporočanje športnega treninga na podlagi prejšnjih aktivnosti\\\\} 
+\normalsize
+[Summary]
+\\
+
+\begin{multicols}{2}
+
+\section{Uvod}
+[Tukaj pišemo uvod]
+
+\section{Povezana dela}
+[Tukaj povezana dela]
+
+\section{Priprava podatkov}
+[Parser in podatki itd....]
+
+\section{Metode strojnega učenja}
+
+\subsection{Odločitveno drevo}
+
+
+\subsection{Nevronske mreže}
+
+
+\subsection{Metoda podpornih vektorjev}
+
+
+
+\section{Predstavitev eksperimenta}
+
+\subsubsection{Nabor podatkov}
+
+
+\subsection{Eksperiment}
+
+
+\subsection{Rezultati}
+
+
+\subsection{Zaključek}
+
+
+\end{multicols}
+
+\normalsize
+\newpage
+
+\begin{multicols}{2}
+
+
+\bibliography{mybib}{}
+\bibliographystyle{plain}
+
+\end{multicols}
+
+\end{document}
