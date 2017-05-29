@@ -36,7 +36,7 @@ classificationResult = "bestAtlethes"
 trainPath = "../../../../Data/week_riders_random_train.csv"
 testPath = "../../../../Data/week_riders_random_test.csv"
 
-svm = SVM(classFeatures, classificationResult, classes, trainPath, testPath, ";")
+svm = SVM(classFeatures, classificationResult, classes, trainPath, testPath, ";",take_percentage=70,rand_seed=4)
 result = svm.run(kernel="rbf")
 # result = svm.run(kernel="poly")
 # result = svm.run(kernel="rbr")
