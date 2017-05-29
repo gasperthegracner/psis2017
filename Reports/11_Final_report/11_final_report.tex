@@ -12,6 +12,13 @@
 \graphicspath{ {images/} }
 \usepackage[usenames, dvipsnames]{color}
 
+\usepackage{multicol,caption}
+
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+
+
 \usepackage{multicol}
 \setlength{\columnsep}{1cm}
 
@@ -96,11 +103,26 @@ Kot vsaka metoda, ima tudi ta slabosti \cite{SciDev}:
 
 
 \section{Predstavitev eksperimenta}
-[tukaj je potrebno opisati tudi knjižnico skilearn]
+Eksperiment, smo izvedli s pomočjo lastnega ogrodja zasnovanega na programskem jeziku \textit{Python} in z uporabo knjižnice \textit{scikit-learn}, ki že ima implementirane vse metode strojnega učenja, ki smo jih pri delu potrebovali, za vizualizacijo rezultatov, pa smo izdelali vizualizacijsko orodje. 
+
+
 \subsubsection{Nabor podatkov}
 
+\subsubsection{[Tukaj pride še nekaj podnaslovov s področja eksperimenta]}
+[Predlagam da si pogledata strukturo, ki je uporabljena pri JT in se ji poskušata pribljižati]
 
-\subsection{Eksperiment}
+\subsubsection{Eksperiment}
+
+\subsubsection{Vizualizacijsko orodje}
+Vizualizacija podatkov je prav tako pomembna, kot obdelava, saj je potrebno rezultate predstaviti na primeren način, tako da je uporabniku prijazen. Naše vizualizacijsko orodje je povsem ločeno od ogrodja za izvajanje eksperimenta. Orodje temelji na programskem jeziku \textit{JavaScript} in na popularni knjižnici za obliko \textit{Bootstrap}.\\
+Orodje kot vhod pričakuje podatke v obliki strukture \textit{JSON}, ki jih nato predstavi v obiki urnika.\\ 
+
+
+\begin{Figure}
+ \centering
+ \includegraphics[width=\linewidth]{vizualization}
+ \captionof{figure}{Prikaz vizualizacije}
+\end{Figure}
 
 
 \subsection{Rezultati}
