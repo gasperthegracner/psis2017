@@ -67,6 +67,7 @@ V nadaljevanju članka, je so navedena in opisana povezana dela in že odstoječ
 [Parser in podatki itd....]
 
 \section{Metode strojnega učenja}
+Razvitih je bilo že kar nekaj metod strojnega učenja, v našem primeru je bila izbira metode strojnega učenja prepuščena posamezniku, saj smo si želeli čim večjo raznolikost. Izbrali smo si \textit{odločitveno drevo}, \textit{nevronske mreže}, \textit{metodo podpornih vektorjev (SVM)}, na koncu pa smo poskusili še z ansambelsko metodo.
 
 \subsection{Odločitveno drevo}
 
@@ -75,11 +76,27 @@ V nadaljevanju članka, je so navedena in opisana povezana dela in že odstoječ
 
 
 \subsection{Metoda podpornih vektorjev}
+Metodo podpornih  vektorjev (\textit{angl. Support vector machine}) je prvič leta 1995 predstavil V. Vapnik\cite{Vapnik}, ki jo je opisal kot metodo nazdorovanega strojnega učenja za binarne klasifikacijske probleme. SVM je v primerjavi z nevronskimi mrežami precej enostavnejša metoda, ki ne zagotavlja ravno optimalnih rezultatov, omogoča pa nam da hitro dosežemo sprejemljive rezultate\cite{Hsu}.\\
+SVM je uporabljen na mnogih področjih, kot je klasifikacija slik, razpoznava ročno napisanih črk, v raziskovalne namene v biologiji in drugih znanstvenih podtočjih, najbolje pa se obnese pri kategorizaciji besedila\cite{Wiki_svm}.\\
+\subsubsection{Prednosti SVM}
+Razlogi za izbiro metode SVM so: \cite{SciDev}:
+\begin{enumerate}
+\item{deluje v večdimenzionalnem prostoru,}
+\item{efektiven tudi v primeru, jo je število atributov večje, kot število primerkov,}
+\item{prostorko učinkovit,}
+\item{podpira različne funkcije jedra}
+\end{enumerate}
 
+\subsubsection{Slabosti SVM}
+Kot vsaka metoda, ima tudi ta slabosti \cite{SciDev}:
+\begin{enumerate}
+\item{slabša učinkovitost v primeru da je število atributov veliko večje od števila primerkov,}
+\item{SVM-ji direktno ne določajo verjetnosti, zato je ta izračunana s pomočjo \textit{five-fold cross-validation}}
+\end{enumerate}
 
 
 \section{Predstavitev eksperimenta}
-
+[tukaj je potrebno opisati tudi knjižnico skilearn]
 \subsubsection{Nabor podatkov}
 
 
