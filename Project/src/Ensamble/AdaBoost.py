@@ -1,4 +1,5 @@
 from sklearn.ensemble import AdaBoostClassifier
+from sklearn.metrics import f1_score
 
 from Project.src.Shared.DataReader import DataReader as dr
 
@@ -22,9 +23,12 @@ class ADAB:
         self.clf = AdaBoostClassifier(n_estimators=100)
         self.clf.fit(self.trainSet, self.trainSetClasses)
         score = self.clf.score(self.testSet, self.testSettClasses)
+        predicted = self.clf.predict(self.testSet)
+        f1Score = f1_score(self.testSettClasses, predicted, average='binary', pos_label='1')
 
         return {
-            "score": score
+            "score": score,
+            "f1_score": f1Score
         }
 
     def predict(self):

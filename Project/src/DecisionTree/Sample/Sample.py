@@ -39,5 +39,5 @@ testPath = "../../../Data/week_riders_random_test.csv"
 dt = DT(classFeatures, classificationResult, classes, trainPath, testPath, ";")
 result = dt.run()
 
-print("Mean sample accuracy: " + str(result["score"] * 100) + "%")
+print("Mean sample accuracy: " + str(result["score"] * 100) + "%\nF1 score: " + str(round(result["f1_score"], 4)))
 

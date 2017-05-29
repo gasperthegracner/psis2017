@@ -1,5 +1,6 @@
 from sklearn.neural_network import MLPClassifier
-import numpy as np
+from sklearn.metrics import f1_score
+
 from Project.src.Shared.DataReader import DataReader as dr
 
 
@@ -27,9 +28,12 @@ class NN:
                             hidden_layer_sizes=hidden_size)
         clf.fit(self.trainSet, self.trainSetClasses)
         score = clf.score(self.testSet, self.testSettClasses)
+        predicted = clf.predict(self.testSet)
+        f1Score = f1_score(self.testSettClasses, predicted, average='binary', pos_label='1')
 
         return {
-            "score": score
+            "score": score,
+            "f1_score": f1Score
         }
 
     def predict(self, solver="sgd", activation="tanh", hidden_size=(100, 1000)):
