@@ -1,6 +1,7 @@
-from Project.src.SupportVectorMachine.SVM.SupportVectorMachine import SVM, np
+from Project.src.SupportVectorMachine.SVM.SupportVectorMachine import SVM
 from Project.src.Shared.Recomender import Recommender
 from Project.helpers.RecommentationOutputBuilder import RecommendationOutputBulder as ROB
+import numpy as np
 
 classFeatures = [("mon_intensity", np.float),
                  ("mon_duration", np.float),
