@@ -1,7 +1,7 @@
 import sys
 sys.path.append('/Users/luka/Documents/GitRepos/psis2017.git/Project/')
 
-from src.NeuralNetworks.neural_networks import NN
+from Project.src.NeuralNetworks.neural_networks import NN
 import numpy as np
 
 classFeatures = [("mon_intensity", np.float),
@@ -42,4 +42,4 @@ testPath = "../../../Data/week_riders_random_test.csv"
 nn = NN(classFeatures, classificationResult, classes, trainPath, testPath, ";")
 result = nn.run()
 
-print("Mean sample accuracy: " + str(result["score"]) + "%")
+print("Mean sample accuracy: " + str(result["score"] * 100) + "%\nF1 score: " + str(round(result["f1_score"], 4)))

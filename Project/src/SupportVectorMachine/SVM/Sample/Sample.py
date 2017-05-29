@@ -1,4 +1,5 @@
-from Project.src.SupportVectorMachine.SVM.SupportVectorMachine import SVM, np
+from Project.src.SupportVectorMachine.SVM.SupportVectorMachine import SVM
+import numpy as np
 
 classFeatures = [("mon_intensity", np.float),
                  ("mon_duration", np.float),
@@ -44,5 +45,5 @@ result = svm.run(kernel="rbf")
 #Consider pre-processing your data with StandardScaler or MinMaxScaler.
 
 
-print("Mean sample accuracy: " + str(result["score"] * 100) + "%")
+print("Mean sample accuracy: " + str(result["score"] * 100) + "%\nF1 score: " + str(round(result["f1_score"], 4)))
 

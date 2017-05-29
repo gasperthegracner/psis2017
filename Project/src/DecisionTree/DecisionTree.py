@@ -1,4 +1,5 @@
 from sklearn import tree
+from sklearn.metrics import f1_score
 
 from Project.src.Shared.DataReader import DataReader as dr
 
@@ -21,9 +22,12 @@ class DT:
         clf = tree.DecisionTreeClassifier()
         clf.fit(self.trainSet, self.trainSetClasses)
         score = clf.score(self.testSet, self.testSettClasses)
+        predicted = clf.predict(self.testSet)
+        f1Score = f1_score(self.testSettClasses, predicted, average='binary', pos_label='1')
 
         return {
-            "score": score
+            "score": score,
+            "f1_score": f1Score
         }
 
     def predict(self):
