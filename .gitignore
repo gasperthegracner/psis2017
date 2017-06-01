@@ -1,4 +1,5 @@
 *.directory
 *.pdf
+*.dvi
 *.pyc
 .idea/
