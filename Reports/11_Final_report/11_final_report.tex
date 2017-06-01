@@ -61,10 +61,10 @@ framexleftmargin=15pt}
 \begin{multicols}{2}
 
 \section{Uvod}
-Veliko ljudi se dandanes ukvarja z najrazličnejšimi športi, nekateri profesionalno, z namenom, da dosežejo čim boljše rezultate in osvojijo medalije na tekmovanjih, drugi pa se s športom ukvarjajo povsem rekreacijsko. Skoraj vsi športniki pa se borijo s samim sabo in želijo doseči nek cilj.\\
-Kot glavni faktor, ki pripomore k izboljšavm lahko štejemo kritike, mnenja in predloge, ki jih dobimo od trenerjev oz. akterja, ki spremlja našo športno aktivnost. Trenutna tehnologija omogoča bogat nabor podatkov, ki jih lahko dobimo v času treningov in tekem. Veliko atletov in trenerjev se strinja, da do ti podatki neprecenljivega pomena\cite{Liebermann}. Velika večina ljudi ima danes ob sebi pametne telefone, nekateri celo pametne ure in razne športne ure, ki omogočajo zbiranje podatkov o aktivnosti osebe, natančnost podatkov pa je odvisna od tipa posamezne naprave in proizvajalca čipa\cite{Case}.\\
+Veliko ljudi se dandanes ukvarja z najrazličnejšimi športi, nekateri profesionalno, z namenom, da dosežejo čim boljše rezultate in osvojijo medalje na tekmovanjih, drugi pa se s športom ukvarjajo povsem rekreacijsko. Skoraj vsi športniki pa se borijo s samim sabo in želijo doseči nek cilj.\\
+Kot glavni faktor, ki pripomore k izboljšavam lahko štejemo kritike, mnenja in predloge, ki jih dobimo od trenerjev oz. akterja, ki spremlja našo športno aktivnost. Trenutna tehnologija omogoča bogat nabor podatkov, ki jih lahko dobimo v času treningov in tekem. Veliko atletov in trenerjev se strinja, da do ti podatki neprecenljivega pomena\cite{Liebermann}. Velika večina ljudi ima danes ob sebi pametne telefone, nekateri celo pametne ure in razne športne ure, ki omogočajo zbiranje podatkov o aktivnosti osebe, natančnost podatkov pa je odvisna od tipa posamezne naprave in proizvajalca čipa\cite{Case}.\\
 Pridobljeni podatki, nam brez prave obdelave in predstavitve ne prinašajo velike vrednosti, zato bomo v  članku opisali metode, s katerimi smo podatke obdelali in iz njih pridobili uporabne informacije. Naša naloga je bila preizkusiti različne metode strojnega učenja, ki bi trenerjem in rekreativnim športnikom pomagale pri priporočanju čim bolj optimalnega treninga.\\
-V nadaljevanju članka, je so navedena in opisana povezana dela in že odstoječe aplikacije, ki obstajo na tem področju. Opisan je postopek priprave podatkov in uporabljene metode strojnega učenja. V drugem delu čanka pa je predstavljen eksperiment in rezultati našega dela.
+V nadaljevanju članka, je so navedena in opisana povezana dela in že odstoječe aplikacije, ki obstajajo na tem področju. Opisan je postopek priprave podatkov in uporabljene metode strojnega učenja. V drugem delu članka pa je predstavljen eksperiment in rezultati našega dela.
 
 
 \section{Povezana dela}
@@ -77,7 +77,26 @@ V nadaljevanju članka, je so navedena in opisana povezana dela in že odstoječ
 Razvitih je bilo že kar nekaj metod strojnega učenja, v našem primeru je bila izbira metode strojnega učenja prepuščena posamezniku, saj smo si želeli čim večjo raznolikost. Izbrali smo si \textit{odločitveno drevo}, \textit{nevronske mreže}, \textit{metodo podpornih vektorjev (SVM)}, na koncu pa smo poskusili še z ansambelsko metodo.
 
 \subsection{Odločitveno drevo}
-
+Odločitveno drevo je metoda nadzorovanega učenja, ki s pomočjo pravil, zapisanih v vozliščih, napove izhodno vrednost. Poznamo klasifikacijsta odločitvena drevesa, ki imajo kot izhod omejeno število razredov in regresijska odločitvena drevesa, ki imajo za izhod realno vrednost. \cite{Wiki_tree}. 
+\subsubsection{Prednosti}
+Prednosti odločitvenih dreves so\cite{SciTree}:
+\begin{enumerate}
+\item{Enostavna za razlago in interpretacijo, lahko jih tudi vizualiziramo}
+\item{Ni veliko predobdelave podatkov}
+\item{Uporaba modela ima logaritemsko časovno zahtevnost}
+\item{Deluje na numeričnih in nominalnih vrednostih}
+\item{Je model bele škatle, izbor izhodne vrednosti lahko enostavno razložimo}
+\item{Rezultate lahko statistično podkrepimo}
+\end{enumerate}
+\subsubsection{Slabosti}
+Glavne spabosti odločitvenih dreves so\cite{SciTree}:
+\begin{enumerate}
+\item{Odločitvena drevesa se lahko preveč prilagodijo učni množici, kar lahko privede do modela, ki ni dovolj splošen. To lahko rešimo z omejitvami vejitev in globine.}
+\item{Majhne spremembe v podatkih lahko povzročijo velike spremembe v modelu.}
+\item{Problem učenja odločitvenega drevesa je zelo kompleksen, zato se uporabljajo hevristični pristopi, ki ne zagotavljajo optimalne rešitve. Ta problem lahko omilimo 
+z uporabo ansambelskih metod.}
+\item{Algoritmi za grajenje dreves lahko ustvarijo pristranske modele, če velika razlika v frekvenci pojavitve razredov.}
+\end{enumerate}
 
 \subsection{Nevronske mreže}
 
