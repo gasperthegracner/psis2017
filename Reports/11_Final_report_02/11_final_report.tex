@@ -124,7 +124,30 @@ V nadaljevanju članka, je so navedena in opisana povezana dela in že odstoječ
 [Tukaj povezana dela]
 
 \section{Priprava podatkov}
-[Parser in podatki itd....]
+Podatke smo razdelili na aktivnost enega altleta v tednu.
+Vsi atleti imajo podatke o srčnem utripu in dolžini treninga.
+Te podatke smo diskretizirali, da imamo postavljene meje podatkov.
+Diskretizacijo smo izvedli s pomočjo orodja \textit{RapidMiner} \cite{rapidminer}.
+V orodju smo uporabili gručenje \textit{k-means}. Iz gručenja smo lahko ocenili intenzivnost treninga določenega altleta.
+
+Za uporabo podatkov v klasifikatorjih smo naredili še obdelavo podatkov za celoten teden in jih združili v en zapis.
+Za vsak teden se naredi klasifikacija kakšne treninge je posamezen atlet naredil.
+Za določanje efektivnosti altleta v tedno smo uporabili naslednje enačbe: 
+
+\begin{equation}
+Intensity = (\sum_{i=1}^{N} Intensity_i) / N
+\end{equation}
+\begin{equation}
+Duration = (\sum_{i=1}^{N} Duration_i) / N
+\end{equation}
+\begin{equation}
+HearthRate = (\sum_{i=1}^{N} HearthRate_i) / N
+\end{equation}
+\begin{equation} \label{eq:overall}
+Overall = Intensity + Duration + HearthRate
+\end{equation}
+
+Vse podatke smo shranili v formatu csv za lažji uvoz v klasifikacijske algoritme.
 
 \section{Metode strojnega učenja}
 Razvitih je bilo že kar nekaj metod strojnega učenja, v našem primeru je bila izbira metode strojnega učenja prepuščena posamezniku, saj smo si želeli čim večjo raznolikost. Izbrali smo si \textit{odločitveno drevo}, \textit{nevronske mreže}, \textit{metodo podpornih vektorjev (SVM)}, na koncu pa smo poskusili še z ansambelsko metodo.
