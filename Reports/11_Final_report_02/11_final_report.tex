@@ -133,7 +133,7 @@ V orodju smo uporabili gručenje \textit{k-means}. Iz gručenja smo lahko ocenil
 
 Za uporabo podatkov v klasifikatorjih smo naredili še obdelavo podatkov za celoten teden in jih združili v en zapis.
 Za vsak teden se naredi klasifikacija kakšne treninge je posamezen atlet naredil.
-Za določanje efektivnosti altleta v tedno smo uporabili naslednje enačbe: 
+Za določanje efektivnosti altleta v tednu smo uporabili naslednje enačbe:
 
 \begin{equation}
 Intensity = (\sum_{i=1}^{N} Intensity_i) / N
@@ -147,6 +147,7 @@ HearthRate = (\sum_{i=1}^{N} HearthRate_i) / N
 \begin{equation} \label{eq:overall}
 Overall = Intensity + Duration + HearthRate
 \end{equation}
+Kjer \textit{N} pomeni število dni v tednu, \textit{Intensity}, \textit{Duration} in \textit{HearthRate} pa polja vrednosti za vsak posamezni dan od atleta.
 
 Vse podatke smo shranili v formatu csv za lažji uvoz v klasifikacijske algoritme.
 
