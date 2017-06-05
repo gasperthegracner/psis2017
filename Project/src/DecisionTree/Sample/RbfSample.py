@@ -85,7 +85,7 @@ for i in range(0, itters):
     r_tmp = dt.run(
         criterion='gini',
         splitter='best',
-        max_depth=9,
+        max_depth=8,
         min_samples_split=2
     )
     result[4]["score"] += r_tmp["score"]
