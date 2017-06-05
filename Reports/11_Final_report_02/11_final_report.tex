@@ -116,12 +116,10 @@ V sodobnem svetu se izvaja vedno več meritev. Med drugim, se zaradi dostopnosti
 \keywords{Strojno učenje, metoda podpornih vektorjev, nevronske mreže, odločitveno drevo, ansambelske metode}
 
 \section{Uvod}
-Veliko ljudi se dandanes ukvarja z najrazličnejšimi športi, nekateri profesionalno, z namenom, da dosežejo čim boljše rezultate in osvojijo medalije na tekmovanjih, drugi pa se s športom ukvarjajo povsem rekreacijsko. Skoraj vsi športniki pa se borijo s samim sabo in želijo doseči nek cilj.\\
-Kot glavni faktor, ki pripomore k izboljšavm lahko štejemo kritike, mnenja in predloge, ki jih dobimo od trenerjev oz. akterja, ki spremlja našo športno aktivnost. Trenutna tehnologija omogoča bogat nabor podatkov, ki jih lahko dobimo v času treningov in tekem. Veliko atletov in trenerjev se strinja, da so ti podatki neprecenljivega pomena\cite{Liebermann}. Velika večina ljudi ima danes ob sebi pametne telefone, nekateri celo pametne ure in razne športne ure, ki omogočajo zbiranje podatkov o aktivnosti osebe, natančnost podatkov pa je odvisna od tipa posamezne naprave in proizvajalca čipa\cite{Case}.\\
+Veliko ljudi se dandanes ukvarja z najrazličnejšimi športi, nekateri profesionalno, z namenom, da dosežejo čim boljše rezultate in osvojijo medalje na tekmovanjih, drugi pa se s športom ukvarjajo povsem rekreacijsko. Skoraj vsi športniki pa se borijo s samim sabo in želijo doseči nek cilj.\\
+Kot glavni faktor, ki pripomore k izboljšavam lahko štejemo kritike, mnenja in predloge, ki jih dobimo od trenerjev oz. akterja, ki spremlja našo športno aktivnost. Trenutna tehnologija omogoča bogat nabor podatkov, ki jih lahko dobimo v času treningov in tekem. Veliko atletov in trenerjev se strinja, da so ti podatki neprecenljivega pomena\cite{Liebermann}. Velika večina ljudi ima danes ob sebi pametne telefone, nekateri celo pametne ure in razne športne ure, ki omogočajo zbiranje podatkov o aktivnosti osebe, natančnost podatkov pa je odvisna od tipa posamezne naprave in proizvajalca čipa\cite{Case}.\\
 Pridobljeni podatki, nam brez prave obdelave in predstavitve ne prinašajo velike vrednosti, zato bomo v  članku opisali metode, s katerimi smo podatke obdelali in iz njih pridobili uporabne informacije. Naša naloga je bila preizkusiti različne metode strojnega učenja, ki bi trenerjem in rekreativnim športnikom pomagale pri priporočanju čim bolj optimalnega treninga.\\
-V nadaljevanju članka, je so navedena in opisana povezana dela in že odstoječe aplikacije, ki obstajo na tem področju. Opisan je postopek priprave podatkov in uporabljene metode strojnega učenja. V drugem delu čanka pa je predstavljen eksperiment in rezultati našega dela.
-
-
+V nadaljevanju članka, je so navedena in opisana povezana dela in že obstoječe aplikacije, ki obstajajo na tem področju. Opisan je postopek priprave podatkov in uporabljene metode strojnega učenja. V drugem delu članka pa je predstavljen eksperiment in rezultati našega dela.
 \section{Povezana dela}
 Med iskanjem obstoječih rešitev nismo našli konkretno opisanega primera 
 za napovedovanje treninga za športne aktivnosti kot so tek, kolesarjenje,
@@ -135,15 +133,15 @@ ki so povezane z npovedovanjem treninga (McmillanRunning, Runtastic, SportTracke
 
 \section{Priprava podatkov}
 V eksperimentu smo uporabili podatke sedmih kolesarjev, ki so bili zapisani v gpx formatu. Atleti so skupaj opravili 2688 treningov. Iz njih smo s pomočjo knjižnice gpxpy za vsak trening razčlenili trajanje, povprečni in največji srčni utrip, datum, višino vzpona in spusta, dolžino brez in z upoštevanjem vzpona in spusta, čas premikanja in čas počitka. 
-Podatke smo razdelili na aktivnost enega altleta v tednu.
+Podatke smo razdelili na aktivnost enega atleta v tednu.
 Vsi atleti imajo podatke o srčnem utripu in dolžini treninga.
 Te podatke smo diskretizirali, da imamo postavljene meje podatkov.
 Diskretizacijo smo izvedli s pomočjo orodja \textit{RapidMiner} \cite{rapidminer}.
-V orodju smo uporabili gručenje \textit{k-means}. Iz gručenja smo lahko ocenili intenzivnost treninga določenega altleta.
+V orodju smo uporabili gručenje \textit{k-means}. Iz gručenja smo lahko ocenili intenzivnost treninga določenega atleta.
 
 Za uporabo podatkov v klasifikatorjih smo naredili še obdelavo podatkov za celoten teden in jih združili v en zapis.
 Za vsak teden se naredi klasifikacija kakšne treninge je posamezen atlet naredil.
-Za določanje efektivnosti altleta v tedno smo uporabili naslednje enačbe: 
+Za določanje efektivnosti atleta v tednu smo uporabili naslednje enačbe: 
 
 \begin{equation}
 Intensity = (\sum_{i=1}^{N} Intensity_i) / N
@@ -164,7 +162,7 @@ Vse podatke smo shranili v formatu csv za lažji uvoz v klasifikacijske algoritm
 Razvitih je bilo že kar nekaj metod strojnega učenja, v našem primeru je bila izbira metode strojnega učenja prepuščena posamezniku, saj smo si želeli čim večjo raznolikost. Izbrali smo si \textit{odločitveno drevo}, \textit{nevronske mreže}, \textit{metodo podpornih vektorjev (SVM)}, na koncu pa smo poskusili še z ansambelsko metodo.
 
 \subsection{Odločitveno drevo}
-Odločitveno drevo je metoda nadzorovanega učenja, ki s pomočjo pravil zapisanih v vozliščih napove izhodno vrednost. Poznamo klasifikacijsta odločitvena drevesa, ki imajo kot izhod omejeno število razredov in regresijska odločitvena drevesa, ki imajo za izhod realno vrednost \cite{Wiki_tree}.
+Odločitveno drevo je metoda nadzorovanega učenja, ki s pomočjo pravil zapisanih v vozliščih napove izhodno vrednost. Poznamo klasifikacijska odločitvena drevesa, ki imajo kot izhod omejeno število razredov in regresijska odločitvena drevesa, ki imajo za izhod realno vrednost \cite{Wiki_tree}.
 \subsubsection{Prednosti}
 Prednosti odločitvenih dreves so \cite{SciTree}:
 \begin{enumerate}
@@ -185,21 +183,21 @@ Glavne slabosti odločitvenih dreves so \cite{SciTree}:
 \end{enumerate}
 
 \subsection{Ansambelska metoda}
-Za ansambelsko metodo smo preizkusili AdaBoost, ki deluje tako, da najprej nauči klasifikator na na originalnem podatkovnem setu, nato pa spremeni uteži na narobe klasificiranih primerkih in se tako ostedotoči na težje primere klasifikacije. \cite{SciAda}
+Za ansambelsko metodo smo preizkusili AdaBoost, ki deluje tako, da najprej nauči klasifikator na na originalnem podatkovnem setu, nato pa spremeni uteži na narobe klasificiranih primerkih in se tako osredotoči na težje primere klasifikacije. \cite{SciAda}
 
 
 \subsection{Nevronske mreže}
 
 
 \subsection{Metoda podpornih vektorjev}
-Metodo podpornih  vektorjev (\textit{angl. Support vector machine}) je prvič leta 1995 predstavil V. Vapnik\cite{Vapnik}, ki jo je opisal kot metodo nazdorovanega strojnega učenja za binarne klasifikacijske probleme. SVM je v primerjavi z nevronskimi mrežami precej enostavnejša metoda, ki ne zagotavlja ravno optimalnih rezultatov, omogoča pa nam da hitro dosežemo sprejemljive rezultate\cite{Hsu}.\\
-SVM je uporabljen na mnogih področjih, kot je klasifikacija slik, razpoznava ročno napisanih črk, v raziskovalne namene v biologiji in drugih znanstvenih podtočjih, najbolje pa se obnese pri kategorizaciji besedila\cite{Wiki_svm}.\\
+Metodo podpornih  vektorjev (\textit{angl. Support vector machine}) je prvič leta 1995 predstavil V. Vapnik\cite{Vapnik}, ki jo je opisal kot metodo nadzorovanega strojnega učenja za binarne klasifikacijske probleme. SVM je v primerjavi z nevronskimi mrežami precej enostavnejša metoda, ki ne zagotavlja ravno optimalnih rezultatov, omogoča pa nam da hitro dosežemo sprejemljive rezultate\cite{Hsu}.\\
+SVM je uporabljen na mnogih področjih, kot je klasifikacija slik, razpoznava ročno napisanih črk, v raziskovalne namene v biologiji in drugih znanstvenih področjih, najbolje pa se obnese pri kategorizaciji besedila\cite{Wiki_svm}.\\
 \subsubsection{Prednosti SVM}
 Razlogi za izbiro metode SVM so: \cite{SciDev}:
 \begin{enumerate}
 \item{deluje v večdimenzionalnem prostoru,}
 \item{efektiven tudi v primeru, jo je število atributov večje, kot število primerkov,}
-\item{prostorko učinkovit,}
+\item{prostorsko učinkovit,}
 \item{podpira različne funkcije jedra}
 \end{enumerate}
 
@@ -217,13 +215,13 @@ Eksperiment, smo izvedli s pomočjo lastnega ogrodja zasnovanega na programskem 
 
 \subsubsection{Nabor podatkov}
 Pri našem eksperimentu smo uporabili 600 različnih tedenskih treningov.
-Od tega je 400 tedenskih treningov bilo uporabljenih za testno množico, ostalih 200 pa je bilo uporabljenjih za testno množico.
+Od tega je 400 tedenskih treningov bilo uporabljenih za testno množico, ostalih 200 pa je bilo uporabljenih za testno množico.
 
 \subsubsection{Eksperiment}
 
 \subsubsection{Vizualizacijsko orodje}
 Vizualizacija podatkov je prav tako pomembna, kot obdelava, saj je potrebno rezultate predstaviti na primeren način, tako da je uporabniku prijazen. Naše vizualizacijsko orodje je povsem ločeno od ogrodja za izvajanje eksperimenta. Orodje temelji na programskem jeziku \textit{JavaScript} in na popularni knjižnici za obliko \textit{Bootstrap}.\\
-Orodje kot vhod pričakuje podatke v obliki strukture \textit{JSON}, ki jih nato predstavi v obiki urnika.\\ 
+Orodje kot vhod pričakuje podatke v obliki strukture \textit{JSON}, ki jih nato predstavi v obliki urnika.\\ 
 
 
 \begin{figure}
@@ -366,7 +364,7 @@ Pri ansambelski metodi število klasifikatorjev nad deset ni imelo velikega vpli
 
 \section{Zaključek}
 S tem eksperimentom smo želeli predlagati čim boljše treninge atletom, da bi imeli optimalen napredek.
-Vsakega atleta smo najprej klasificirali in se probali naučiti kakšne treninge izvaja in pri tem ugotoviti kakšni treningi bi bili najbolj primerni za njega.
+Vsakega atleta smo najprej klasificirali in se poskusili naučiti kakšne treninge izvaja in pri tem ugotoviti kakšni treningi bi bili najbolj primerni za njega.
 Pri tem smo uporabili odločitvena drevesa, metodo podpornih vektorjev in nevronske mreže.
 Najboljše se je izkazala metoda [METODA], ki se z izbranimi, za naš problem optimalnimi parametri izkazala z [PROCENT] natančnostjo.
 Zgradili smo tudi orodje za pregledovanje predlaganih treningov za naslednji teden, ki jih lahko uporabnik vidi preko brskalnika.
