@@ -154,7 +154,7 @@ Vse podatke smo shranili v formatu csv za lažji uvoz v klasifikacijske algoritm
 Razvitih je bilo že kar nekaj metod strojnega učenja, v našem primeru je bila izbira metode strojnega učenja prepuščena posamezniku, saj smo si želeli čim večjo raznolikost. Izbrali smo si \textit{odločitveno drevo}, \textit{nevronske mreže}, \textit{metodo podpornih vektorjev (SVM)}, na koncu pa smo poskusili še z ansambelsko metodo.
 
 \subsection{Odločitveno drevo}
-Odločitveno drevo je metoda nadzorovanega učenja, ki s pomočjo pravil, zapisanih v vozliščih, napove izhodno vrednost. Poznamo klasifikacijsta odločitvena drevesa, ki imajo kot izhod omejeno število razredov in regresijska odločitvena drevesa, ki imajo za izhod realno vrednost \cite{Wiki_tree}.
+Odločitveno drevo je metoda nadzorovanega učenja, ki s pomočjo pravil zapisanih v vozliščih napove izhodno vrednost. Poznamo klasifikacijsta odločitvena drevesa, ki imajo kot izhod omejeno število razredov in regresijska odločitvena drevesa, ki imajo za izhod realno vrednost \cite{Wiki_tree}.
 \subsubsection{Prednosti}
 Prednosti odločitvenih dreves so \cite{SciTree}:
 \begin{enumerate}
@@ -163,7 +163,7 @@ Prednosti odločitvenih dreves so \cite{SciTree}:
 \item{Uporaba modela ima logaritemsko časovno zahtevnost.}
 \item{Deluje na numeričnih in nominalnih vrednostih.}
 \item{Je model bele škatle, izbor izhodne vrednosti lahko enostavno razložimo.}
-\item{Rezultate lahko statistično podkrepimo}
+\item{Rezultate lahko statistično podkrepimo.}
 \end{enumerate}
 \subsubsection{Slabosti}
 Glavne slabosti odločitvenih dreves so \cite{SciTree}:
@@ -171,8 +171,12 @@ Glavne slabosti odločitvenih dreves so \cite{SciTree}:
 \item{Odločitvena drevesa se lahko preveč prilagodijo učni množici, kar lahko privede do modela, ki je slabo generaliziran.}
 \item{Majhne spremembe v podatkih lahko povzročijo velike spremembe v modelu.}
 \item{Problem učenja odločitvenega drevesa je zelo kompleksen, zato se uporabljajo hevristični pristopi, ki ne zagotavljajo popolne rešitve. Ta problem lahko omilimo z uporabo ansambelskih metod.}
-\item{Algoritmi za grajenje dreves lahko ustvarijo pristranske modele, če je vekila razlika v frekvenci pojavitve razredov. }
+\item{Algoritmi za grajenje dreves lahko ustvarijo pristranske modele, če je velika razlika v frekvenci pojavitve razredov. }
 \end{enumerate}
+
+\subsection{Ansambelska metoda}
+Za ansambelsko metodo smo preizkusili AdaBoost, ki deluje tako, da najprej nauči klasifikator na na originalnem podatkovnem setu, nato pa spremeni uteži na narobe klasificiranih primerkih in se tako ostedotoči na težje primere klasifikacije. \cite{SciAda}
+
 
 \subsection{Nevronske mreže}
 
