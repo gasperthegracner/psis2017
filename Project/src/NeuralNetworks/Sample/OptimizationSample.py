@@ -58,6 +58,6 @@ for iter in range(0, itters):
 
 result2 = {}
 for key, value in result.items():
-    result2[key] = value / 100
+    result2[key] = value / itters
 
 print(result)
