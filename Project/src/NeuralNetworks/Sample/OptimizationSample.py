@@ -58,6 +58,9 @@ for iter in range(0, itters):
 
 result2 = {}
 for key, value in result.items():
-    result2[key] = value / itters
+    val = value
+    val['score'] = value['score'] / itters
+    val['f1_score'] = value['f1_score'] / itters
+    result2[key] = val
 
 print(result)
