@@ -20,7 +20,7 @@ class NN:
         self.testSet = result2["set"]
         self.testSettClasses = result2["classes"]
 
-    def run(self, solver="sgd", activation="tanh", hidden_size=(100, 1000)):
+    def run(self, solver="sgd", activation="tanh", hidden_size=(100, 100, 100)):
         """ Run neural networks classifier
         """
         clf = MLPClassifier(activation=activation,
