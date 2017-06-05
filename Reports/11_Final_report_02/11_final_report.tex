@@ -189,29 +189,7 @@ Za ansambelsko metodo smo preizkusili AdaBoost, ki deluje tako, da najprej nauč
 
 
 \subsection{Nevronske mreže}
-Nevronska mreža tudi umetna nevronska mreža (\textit{angl.
-Neural networks ali Artificial neural networks}) je način za obdelavo podatkov.
-Nevronske mreže poskušajo čim bolj posnemati delovanje človeških oz. živalskih možganov.
-So sestavljene iz množice umetnih nevronov, ki so povezani med seboj.
-Vsaka mreža ima vhodne nevrone v našem primeru je vhod tedenski trening.
-Poleg vhoda ima tudi vmesni ali skriti sloj, kjer se nevronska mreža uči in izbira rezultate, na koncu pa nam vrne izhod oz. rezultat.
-Nevroni lahko pošiljajo signale drugim nevronom, ko nevron sprejme dovolj signalov pride do zagona nevrona, kar pomeni da nevron odda signal na svojem izhodu.
-Vsak nevron ima lahko več vhodov in izhodov.
 
-\subsubsection{Prednosti nevronskih mrež}
-Prednosti nevronskih mrež so \cite{nnetworks}:
-\begin{enumerate}
-\item{enostavna za uporabo,}
-\item{možnost učenja ne-linearnih problemov,}
-\item{možnost realno časovnega učenja.}
-\end{enumerate}
-
-\subsubsection{Slabosti nevronskih mrež}
-Slabosti nevronskih mrež so \cite{nnetworks}:
-\begin{enumerate}
-\item{potrebuje veliko učno in testno množico,}
-\item{potrebna dobra nastavitev parametrov za učinkovito delovanje.}
-\end{enumerate}
 
 \subsection{Metoda podpornih vektorjev}
 Metodo podpornih  vektorjev (\textit{angl. Support vector machine}) je prvič leta 1995 predstavil V. Vapnik\cite{Vapnik}, ki jo je opisal kot metodo nazdorovanega strojnega učenja za binarne klasifikacijske probleme. SVM je v primerjavi z nevronskimi mrežami precej enostavnejša metoda, ki ne zagotavlja ravno optimalnih rezultatov, omogoča pa nam da hitro dosežemo sprejemljive rezultate\cite{Hsu}.\\
@@ -256,6 +234,134 @@ Orodje kot vhod pričakuje podatke v obliki strukture \textit{JSON}, ki jih nato
 
 
 \subsection{Rezultati}
+V spodnjih tabelah so prikazani parametri za vsako metodo, pripadajoča natančnost in F1 metrika. 
+\subsubsection{Metoda podpornih vektorjev}
+Metoda se je najbolje obnesla z linearnim jedrom, najslabše pa z jedrom rbf. Parameter, ki omogoči krčenje na klasifikacijski model ni vplival. Prav tako v primeru jeder rbf in poly na model ni vplival parameter, ki omejuje maksimalno število iteracij, v primeru linearnega jedra pa se je omejevanje števila operacij izkazalo kot negativno.
+
+ \small
+ \setlength{\tabcolsep}{3pt}
+ \begin{tabular}{|lrr|}
+\hline
+Metoda & Acc & F1 \\
+\hline \hline
+(kernel="rbf") & 77.35\% & 0.7532 \\
+\hline
+(kernel="rbf", max\_iter=50000) & 77.35\% & 0.7532 \\
+\hline
+(kernel="rbf", decision\_function\_shape="ovo") & 77.35\% & 0.7532 \\
+\hline
+(kernel="rbf", decision\_function\_shape="ovr") & 77.35\% & 0.7532 \\
+\hline
+(kernel="rbf", shrinking=False) & 77.35\% & 0.7532 \\
+\hline
+(kernel="poly") & 79.32\% & 0.7887 \\
+\hline
+(kernel="poly", max\_iter=50000) & 79.32\% & 0.7887 \\
+\hline
+(kernel="poly", decision\_function\_shape="ovo") & 79.32\% & 0.7887 \\
+\hline
+(kernel="poly", decision\_function\_shape="ovr") & 79.32\% & 0.7887 \\
+\hline
+(kernel="poly", shrinking=False) & 79.32\% & 0.7887 \\
+\hline
+(kernel="linear") & 79.53\% & 0.7913 \\
+\hline
+(kernel="linear", max\_iter=50000) & 78.60\% & 0.7816 \\
+\hline
+(kernel="linear", decision\_function\_shape="ovo") & 79.53\% & 0.7913 \\
+\hline
+(kernel="linear", decision\_function\_shape="ovr") & 79.53\% & 0.7913 \\
+\hline
+(kernel="linear", shrinking=False) & 79.53\% & 0.7913 \\
+\hline
+\end{tabular}
+
+\normalsize
+
+\subsubsection{Nevronske mreže}
+Najboljši rezultat nevronskih mrež smo dobili pri uporabi aktivacijske funkcije tanh v kombinaciji z optimizacijsko metodo adam.
+\begin{center}
+ \small
+ \setlength{\tabcolsep}{3pt}
+ \begin{tabular}{|l r r|}
+  \hline
+  metoda & F1 & Accuracy \\
+  \hline \hline
+  adam-identity & 0.64 & 0.54\% \\
+  \hline
+  adam-logistic & 0.77 & 0.78\% \\
+  \hline
+  lbfgs-logistic & 0.69 & 0.70\% \\
+  \hline
+  lbfgs-tanh & 0.72 & 0.71\% \\
+  \hline
+  adam-relu & 0.71 & 0.69\% \\
+  \hline
+  lbfgs-relu & 0.63 & 0.60\% \\
+  \hline
+  lbfgs-identity & 0.61 & 0.52\% \\
+  \hline
+  adam-tanh & 0.79 & 0.80\% \\
+  \hline
+  sgd-identity & 0.00 & 0.49\% \\
+  \hline
+  sgd-tanh & 0.68 & 0.68\% \\
+  \hline
+  sgd-relu & 0.67 & 0.50\% \\
+  \hline
+  sgd-logistic & 0.00 & 0.49\% \\
+  \hline
+ \end{tabular}
+\end{center}
+\normalsize
+
+
+\subsubsection{Odločitveno drevo}
+Odločitveno drevo je vračalo podobne rezultate ne glede na nastavljene parametre. Rezultati pa so postajali slabši, če smo maksimalno globino zmanjšali pod 9.
+\begin{center}
+ \small
+ \setlength{\tabcolsep}{3pt}
+ \begin{tabular}{|l l l l r r|}
+ \hline
+  kriterij & vej. funk. & maks. globina & min. vej. & F1 & natančnost  \\
+  \hline \hline
+  gini & best & Brez & 2 & 0.7833 & 78.83\%  \\
+  \hline
+  entropy & best & Brez & 2 & 0.7841 & 78.88\%  \\
+  \hline
+  gini & random & Brez & 2 & 0.7834 & 78.77\%  \\
+  \hline
+  entropy & random & Brez & 2 & 0.7843 & 78.87\%  \\
+  \hline
+  gini & best & 9 & 5 & 0.7805 & 78.58\% \\
+ \hline
+\end{tabular}
+\end{center}
+\normalsize
+
+
+\subsubsection{Ada Boost}
+Pri ansambelski metodi število klasifikatorjev nad deset ni imelo velikega vpliva na natančnost.
+\begin{center}
+ \small
+ \setlength{\tabcolsep}{3pt}
+ \begin{tabular}{|l r r|}
+ \hline
+   št. klasifikatorjev & F1 & Natančnost \\
+  \hline \hline
+  10 & 0.7549 & 76.14\% \\
+  \hline
+  40 & 0.7876 & 79.19\% \\
+  \hline
+  70 & 0.7871 & 79.14\% \\
+  \hline
+  100 & 0.7873 & 79.16\% \\
+  \hline
+  130 & 0.7874 & 79.16\% \\
+  \hline
+ \end{tabular}
+\end{center}
+\normalsize
 
 
 \section{Zaključek}
